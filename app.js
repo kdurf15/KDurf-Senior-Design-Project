@@ -23,6 +23,7 @@ var Y4 = false;
 var Y5 = false;
 var Y6 = false;
 
+//lol
 //internal "coils"
 var V1=false;
 var V2=false;
