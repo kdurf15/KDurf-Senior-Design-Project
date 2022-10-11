@@ -46,6 +46,12 @@ var V18 = false;
 var V19 = false;
 var V20 = false;
 var V21 = false;
+var V22 = false;
+var V23 = false;
+var V24 = false;
+var V25 = false;
+var V26 = false;
+var V27 = false;
 
 //timer 1 variables
 var T0_DUR = 1000;
@@ -70,7 +76,7 @@ var TA0 = 0;
 var T1 = false;
 var T1_EN = false;
 var TA1 = 0;
-//var TO_RST = false;
+var TO_RST = false;
 
 //counter variables
 var CT0 = false;
@@ -111,12 +117,17 @@ function setup(){
   var insepy = 100*canv_h/650.0;
   var buttondscaled = 50.0*canv_w/1200;
   //textFont('Arial',32);
-  in1_button = new MomentaryButton(inox,inoy,buttondscaled,'X1',12);
-  in2_button = new MomentaryButton(inox,inoy+insepy,buttondscaled,'X2',12);
-  in3_button = new MomentaryButton(inox,inoy+2*insepy,buttondscaled,'X3',12);
-  in4_button = new RadioButton(inox+insepx,inoy,buttondscaled,'X4');
-  in5_button = new RadioButton(inox+insepx,inoy+insepy,buttondscaled,'X5');
-  in6_button = new RadioButton(inox+insepx,inoy+2*insepy,buttondscaled,'X6');
+  in1_button = new RadioButton(inox,inoy,buttondscaled,'GLVMS');
+  in2_button = new RadioButton(inox,inoy+insepy,buttondscaled,'BRB S1');
+  in3_button = new RadioButton(inox,inoy+2*insepy,buttondscaled,'BRB S2',12);
+  in4_button = new RadioButton(inox,inoy+3*insepy,buttondscaled,'BRB Cock');
+  in5_button = new RadioButton(inox,inoy+4*insepy,buttondscaled,'TSMS');
+  in6_button = new RadioButton(inox+insepx,inoy,buttondscaled,'PC TBD');
+  in7_button = new RadioButton(inox+insepx,inoy+insepy,buttondscaled,'MC');
+  in8_button = new RadioButton(inox+insepx,inoy+2*insepy,buttondscaled,'FAMS');
+  in9_button = new RadioButton(inox+insepx,inoy+3*insepy,buttondscaled,'FIMD');
+  in10_button = new RadioButton(inox+insepx,inoy+4*insepy,buttondscaled,'BOTS');
+
   run_button = new MomentaryButton(75*canv_w/1200.0,550*canv_h/650.0,buttondscaled/2,'Update',18);
 
   //output lights
@@ -162,6 +173,13 @@ function setup(){
   V20light = new outputLight(intox+5*intsepx,intoy+2*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V20',12);
   V21light = new outputLight(intox+6*intsepx,intoy+2*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V21',12);
 
+  V22light = new outputLight(intox,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V22',12);
+  V23light = new outputLight(intox+intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V23',12);
+  V24light = new outputLight(intox+2*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V24',12);
+  V25light = new outputLight(intox+3*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V25',12);
+  V26light = new outputLight(intox+4*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V26',12);
+  V27light = new outputLight(intox+5*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V27',12);
+
 var timox = canv_w/2-250;
 var timoy = 500*canv_h/650;
 var timsepx = 200*canv_w/1200;
@@ -177,7 +195,7 @@ var ctsepx = 225*canv_w/1200;
    //set up the counters
   CTA0box = new Counter(ctox,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT0",color(0,0,255),color(255,0,0));
   CTA1box = new Counter(ctox+ctsepx,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT1",color(0,0,255),color(255,0,0));
-//run the BAP once to get into a state.
+ //run the BAP once to get into a state.
   runCallback();
 
 }
@@ -206,12 +224,18 @@ function draw(){
   text("Your Code Goes Below Here. Use only variable names you see in the simulator",canv_w/2,640);
 
   //process inputs
-  in1_button.updateButton();
-  in2_button.updateButton();
-  in3_button.updateButton();
+  in1_button.updateRadio();
+  in2_button.updateRadio();
+  in3_button.updateRadio();
   in4_button.updateRadio();
   in5_button.updateRadio();
   in6_button.updateRadio();
+  in7_button.updateRadio();
+  in8_button.updateRadio();
+  in9_button.updateRadio();
+  in10_button.updateRadio();
+
+
   run_button.updateButton();
 
   //hook timers up to global boolean vars
@@ -256,6 +280,34 @@ function draw(){
   X4 = in4_button.state;
   X5 = in5_button.state;
   X6 = in6_button.state;
+  X7 = in7_button.state;
+  X8 = in8_button.state;
+  X9 = in9_button.state;
+  X10 = in10_button.state;
+
+  X6 = T0_EN;
+
+  V9 = V1&&X1&&X2&&X3;
+  V21 = V1&&!V9;
+  V10 = V2&&V9&&X4&&X5;
+  V11 = V3&&T0&&V10;
+  V12 = V4&&X7;
+  V13 = V5&&!X7;
+  V14 = (V3||V4||V5)&&(!X4||!X5);
+  V15 = (V3||V4||V5)&&X8;
+  V16 = (V3||V4||V5)&&X9;
+  V17 = (V3||V4||V5)&&X10;
+  V18 = V8&&(!X10&&!X4&&!X5);
+  V19 = V7&&(!X9&&!X4&&!X5);
+
+  V1 = V22||V21; //actual V21, not placeholder in code currently
+  V2 = V9||V23||V14||V18||V19||V20;
+  V3 = V10||V26||V27;
+  V4 = V11|V25;
+  V5 = V12||V24;
+  V6 = V15;
+  V7 = V16;
+  V8 = V17;
 
   if(run_button.newtouch){
     runCallback();
@@ -298,6 +350,12 @@ function draw(){
   V19light.state = V19;
   V20light.state = V20;
   V21light.state = V21;
+  V22light.state = V22;
+  V23light.state = V23;
+  V24light.state = V24;
+  V25light.state = V25;
+  V26light.state = V26;
+  V27light.state = V27;
 
 
 
@@ -330,7 +388,12 @@ function draw(){
   V19light.drawLight();
   V20light.drawLight();
   V21light.drawLight();
-
+  V22light.drawLight();
+  V23light.drawLight();
+  V24light.drawLight();
+  V25light.drawLight();
+  V26light.drawLight();
+  V27light.drawLight();
 
 
 
@@ -377,6 +440,12 @@ function runCallback(){
   V19=false;
   V20=false;
   V21=false;
+  V22=false;
+  V23=false;
+  V24=false;
+  V25=false;
+  V26=false;
+  V27=false;
   Y1=false;
   Y2=false;
   Y3=false;
