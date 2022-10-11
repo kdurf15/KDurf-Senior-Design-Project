@@ -304,14 +304,23 @@ function draw(){
   V18 = V8&&(!X10&&!X4&&!X5);
   V19 = V7&&(!X9&&!X4&&!X5);
 
-  V1 = V22||V21; //actual V21, not placeholder in code currently
-  V2 = V9||V23||V14||V18||V19||V20;
-  V3 = V10||V26||V27;
-  V4 = V11|V25;
-  V5 = V12||V24;
-  V6 = V15;
-  V7 = V16;
-  V8 = V17;
+  Y1 = V22||V21; //actual V21, not placeholder in code currently
+  Y2 = V9||V23||V14||V18||V19||V20;
+  Y3 = V10||V26||V27;
+  Y4 = V11|V25;
+  Y5 = V12||V24;
+  Y6 = V15;
+  Y7 = V16;
+  Y8 = V17;
+
+  V1 = Y1;
+  V2 = Y2;
+  V3 = Y3;
+  V4 = Y4;
+  V5 = Y5;
+  V6 = Y6;
+  V7 = Y7;
+  V8 = Y8;
 
   if(run_button.newtouch){
     runCallback();
