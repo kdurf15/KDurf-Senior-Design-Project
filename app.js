@@ -121,7 +121,7 @@ function setup(){
   //textFont('Arial',32);
   in1_button = new RadioButton(inox,inoy,buttondscaled,'GLVMS');
   in2_button = new RadioButton(inox,inoy+insepy,buttondscaled,'BRB S1');
-  in3_button = new RadioButton(inox,inoy+2*insepy,buttondscaled,'BRB S2',12);
+  in3_button = new RadioButton(inox,inoy+2*insepy,buttondscaled,'BRB S2');
   in4_button = new RadioButton(inox,inoy+3*insepy,buttondscaled,'BRB Cock');
   in5_button = new RadioButton(inox,inoy+4*insepy,buttondscaled,'TSMS');
   in6_button = new RadioButton(inox+insepx,inoy,buttondscaled,'PC TBD');
@@ -215,17 +215,17 @@ function draw(){
   fill(0);
   //greet the user
   textSize(32);
-  text("Boolean Algebra Program Simulator",canv_w/2,50);
-  textSize(12);
-  text("Type your Boolean Algebra code in javascript in the input box below the simulator. Hit update to see the effects of your Boolean Algebra program on the outputs/variables.",canv_w/2,75);
-  text("You can use any of the momentary inputs (X1-X3), latching inputs (X4-X6), outputs (Yx) or intermediate variables (Vx) shown on the screen in your program.",canv_w/2,95);
-  text("You can also assign timer inputs Tx_EN, and counter inputs CTx_UP/CTx_DOWN to use timers and counters in your program. ",canv_w/2,115);
-  textSize(32);
+  text("Mock Safety Loop Simulator",canv_w/2,50);
+  //textSize(12);
+  //text("Type your Boolean Algebra code in javascript in the input box below the simulator. Hit update to see the effects of your Boolean Algebra program on the outputs/variables.",canv_w/2,75);
+  //text("You can use any of the momentary inputs (X1-X3), latching inputs (X4-X6), outputs (Yx) or intermediate variables (Vx) shown on the screen in your program.",canv_w/2,95);
+  //text("You can also assign timer inputs Tx_EN, and counter inputs CTx_UP/CTx_DOWN to use timers and counters in your program. ",canv_w/2,115);
+  //textSize(32);
   text("Inputs",90*canv_w/1200.,160);
   text("Outputs",(canv_w-100*canv_w/1200.0),160);
   text("Internal Variables",canv_w/2,160);
-  textSize(18);
-  text("Your Code Goes Below Here. Use only variable names you see in the simulator",canv_w/2,640);
+  //textSize(18);
+  //text("Your Code Goes Below Here. Use only variable names you see in the simulator",canv_w/2,640);
 
   //process inputs
   in1_button.updateRadio();
@@ -306,7 +306,7 @@ function draw(){
   V9 = X1&&X2&&X3;
   V21 = V1&&!V9;
   V10 = V2&&V9&&X4&&X5;
-  V11 = V3&&X6&&V10;
+  V11 = V3&&V10&&X6;
   V12 = V4&&X7;
   V13 = V5&&!X7;
   V14 = (V3||V4||V5)&&(!X4||!X5);
@@ -319,7 +319,7 @@ function draw(){
   Y1 = V22||V21; //actual V21, not placeholder in code currently
   Y2 = V9||V23||V14||V18||V19||V20;
   Y3 = V10||V26||V27;
-  Y4 = V11|V25;
+  Y4 = V11||V25;
   Y5 = V12||V24;
   Y6 = V15;
   Y7 = V16;
