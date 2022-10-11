@@ -4,7 +4,7 @@
 
 var in1_button;
 var in2_button;
-var run_button;
+//var run_button;
 
 var Y1light;
 var Y2light;
@@ -56,49 +56,49 @@ var V26 = false;
 var V27 = false;
 
 //timer 1 variables
-var T0_DUR = 1000;
-var T0_EN = false;
-var T0_RST = false;
-var T0 = false;
+// var T0_DUR = 1000;
+// var T0_EN = false;
+// var T0_RST = false;
+// var T0 = false;
 
 
 //counter variables
-var CT0_EN = false;
-var CT0 = false;
-var CTA0 = 0;
-var CTO_RST = false;
-var CT1_CNT = 5;
-var CT0_CNT = 5;
+// var CT0_EN = false;
+// var CT0 = false;
+// var CTA0 = 0;
+// var CTO_RST = false;
+// var CT1_CNT = 5;
+// var CT0_CNT = 5;
 
 //timer variables
-var T0 = false;
-var T1_DUR = 1000;
-var T0_EN = false;
-var TA0 = 0;
-var T1 = false;
-var T1_EN = false;
-var TA1 = 0;
-var TO_RST = false;
+// var T0 = false;
+// var T1_DUR = 1000;
+// var T0_EN = false;
+// var TA0 = 0;
+// var T1 = false;
+// var T1_EN = false;
+// var TA1 = 0;
+// var TO_RST = false;
 
 //counter variables
-var CT0 = false;
-var CT0_UP = false;
-var CT0_DOWN = false;
-var CTA0 = 0;
-var CT0_RST = false;
-var CT1 = false;
-var CT1_UP = false;
-var CT1_DOWN = false;
-var CTA1 = 0;
-var CT1_RST = false;
+// var CT0 = false;
+// var CT0_UP = false;
+// var CT0_DOWN = false;
+// var CTA0 = 0;
+// var CT0_RST = false;
+// var CT1 = false;
+// var CT1_UP = false;
+// var CT1_DOWN = false;
+// var CTA1 = 0;
+// var CT1_RST = false;
 
 var SP0 = true;
 
 var canv_w = 1000;
 var canv_h = 650;
 
-var inputCode;//this is the string that we will execute as code
-var savedInputCode;
+// var inputCode;//this is the string that we will execute as code
+// var savedInputCode;
 
 function setup(){
   var canvas = createCanvas(canv_w,canv_h);
@@ -183,6 +183,7 @@ function setup(){
   V25light = new outputLight(intox+3*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V25',12);
   V26light = new outputLight(intox+4*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V26',12);
   V27light = new outputLight(intox+5*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V27',12);
+
 //
 //var timox = canv_w/2-250;
 //var timoy = 500*canv_h/650;
@@ -451,53 +452,53 @@ function draw(){
 
 }
 
-function runCallback(){
-  console.log("got into run callback");
-  var text = document.getElementById("inputcode");
-  console.log(text.value);
-  savedInputCode = inputCode;
-  inputCode = text.value;
-  CTA0box.count=0;
-  CTA1box.count=0;
-  CTA0box.update();
-  CTA1box.update();
-
-  X1=false;
-  X2=false;
-  X3=false;
-  V1=false;
-  V2=false;
-  V3=false;
-  V4=false;
-  V5=false;
-  V6=false;
-  V7=false;
-  V8=false;
-  V9=false;
-  V10 = false;
-  V11= false;
-  V12 = false;
-  V13=false;
-  V13=false;
-  V15=false;
-  V16=false;
-  V17=false;
-  V18=false;
-  V19=false;
-  V20=false;
-  V21=false;
-  V22=false;
-  V23=false;
-  V24=false;
-  V25=false;
-  V26=false;
-  V27=false;
-  Y1=false;
-  Y2=false;
-  Y3=false;
-  SP0=true;
-
-}
+// function runCallback(){
+//   console.log("got into run callback");
+//   var text = document.getElementById("inputcode");
+//   console.log(text.value);
+//   savedInputCode = inputCode;
+//   inputCode = text.value;
+//   CTA0box.count=0;
+//   CTA1box.count=0;
+//   CTA0box.update();
+//   CTA1box.update();
+//
+//   X1=false;
+//   X2=false;
+//   X3=false;
+//   V1=false;
+//   V2=false;
+//   V3=false;
+//   V4=false;
+//   V5=false;
+//   V6=false;
+//   V7=false;
+//   V8=false;
+//   V9=false;
+//   V10 = false;
+//   V11= false;
+//   V12 = false;
+//   V13=false;
+//   V13=false;
+//   V15=false;
+//   V16=false;
+//   V17=false;
+//   V18=false;
+//   V19=false;
+//   V20=false;
+//   V21=false;
+//   V22=false;
+//   V23=false;
+//   V24=false;
+//   V25=false;
+//   V26=false;
+//   V27=false;
+//   Y1=false;
+//   Y2=false;
+//   Y3=false;
+//   SP0=true;
+//
+// }
 
 function outputLight(ix,iy,id,icolorFalse,icolorTrue,ilabel,itextSize){
   this.x =ix;
