@@ -216,7 +216,7 @@ function draw(){
   // rect(90*canv_w/1200.0,canv_h/2-20,150*canv_w/1200.0,500*canv_h/650.0);
   //rectMode(CENTER);
   //rect(canv_w-100*canv_w/1200.0,canv_h/2-20,175*canv_w/1200.0,365*canv_h/650.0);
-  rect((canv_w-100*canv_w/1200.0)-(175*canv_w/1800.0),(canv_h/2-20)-(365*canv_h/1300),(canv_w), canv_h-10);
+  rect((canv_w-100*canv_w/1200.0)-(175*canv_w/1800.0),(canv_h/2-20)-(365*canv_h/1300),(canv_w), canv_h-100);
   fill(0);
   //greet the user
   textSize(32);
