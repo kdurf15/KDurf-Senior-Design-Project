@@ -130,7 +130,7 @@ function setup(){
   in9_button = new RadioButton(inox+insepx,inoy+3*insepy,buttondscaled,'FIMD');
   in10_button = new RadioButton(inox+insepx,inoy+4*insepy,buttondscaled,'BOTS');
 
-  run_button = new MomentaryButton(75*canv_w/1200.0,550*canv_h/650.0,buttondscaled/2,'Update',18);
+  //run_button = new MomentaryButton(75*canv_w/1200.0,550*canv_h/650.0,buttondscaled/2,'Update',18);
 
   //output lights
   var outox = canv_w-150*canv_w/1200.0;
@@ -240,7 +240,7 @@ function draw(){
   in10_button.updateRadio();
 
 
-  run_button.updateButton();
+  //run_button.updateButton();
 
   //hook timers up to global boolean vars
   TA1box.en = T1_EN;
@@ -303,6 +303,9 @@ function draw(){
   // V17 = (V3||V4||V5)&&X10;
   // V18 = V8&&(!X10&&!X4&&!X5);
   // V19 = V7&&(!X9&&!X4&&!X5);
+
+  /*maybe consider tweaking to add previous inputs rather than states (X1,2,3 in V10 instead of V9)
+  so that I can possibly rework code to only be in one output state at once*/
   V9 = X1&&X2&&X3;
   V21 = V1&&!V9;
   V10 = V2&&V9&&X4&&X5;
@@ -337,6 +340,10 @@ function draw(){
   V6 = Y6;
   V7 = Y7;
   V8 = Y8;
+
+  /*have to/want to edit it so that I am in only one state at a time (with outputs and such)
+  ask how to do this, because it might be conflicting with how the code builds off previous states
+  and inputs. I suppose I can manually add each of the inputs rather than previous state*/
 
   // if(run_button.newtouch){
   //   runCallback();
