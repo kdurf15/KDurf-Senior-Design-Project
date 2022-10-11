@@ -183,24 +183,24 @@ function setup(){
   V25light = new outputLight(intox+3*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V25',12);
   V26light = new outputLight(intox+4*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V26',12);
   V27light = new outputLight(intox+5*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V27',12);
-
-var timox = canv_w/2-250;
-var timoy = 500*canv_h/650;
-var timsepx = 200*canv_w/1200;
+//
+//var timox = canv_w/2-250;
+//var timoy = 500*canv_h/650;
+//var timsepx = 200*canv_w/1200;
 
   //set up the timers
-  TA0box = new Timer(timox,timoy,150*canv_w/1200.0,75*canv_h/650.0,"T0",color(0,0,255),color(255,0,0));
-  TA1box = new Timer(timox+timsepx,timoy,150*canv_w/1200.0,75*canv_h/650.0,"T1",color(0,0,255),color(255,0,0));
+  //TA0box = new Timer(timox,timoy,150*canv_w/1200.0,75*canv_h/650.0,"T0",color(0,0,255),color(255,0,0));
+  //TA1box = new Timer(timox+timsepx,timoy,150*canv_w/1200.0,75*canv_h/650.0,"T1",color(0,0,255),color(255,0,0));
 
-var ctox = canv_w/2+50;
-var ctoy = 512.0*canv_h/650;
-var ctsepx = 225*canv_w/1200;
+//var ctox = canv_w/2+50;
+//var ctoy = 512.0*canv_h/650;
+//var ctsepx = 225*canv_w/1200;
 
    //set up the counters
-  CTA0box = new Counter(ctox,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT0",color(0,0,255),color(255,0,0));
-  CTA1box = new Counter(ctox+ctsepx,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT1",color(0,0,255),color(255,0,0));
+//  CTA0box = new Counter(ctox,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT0",color(0,0,255),color(255,0,0));
+//  CTA1box = new Counter(ctox+ctsepx,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT1",color(0,0,255),color(255,0,0));
  //run the BAP once to get into a state.
-  runCallback();
+  //runCallback();
 
 }
 
@@ -208,10 +208,15 @@ function draw(){
   background(220);
   fill(0);
   stroke(0);
-  rectMode(CENTER);
+  rectMode(CORNERS);
   fill(220);
-  rect(90*canv_w/1200.0,canv_h/2-20,150*canv_w/1200.0,365*canv_h/650.0);
-  rect(canv_w-100*canv_w/1200.0,canv_h/2-20,175*canv_w/1200.0,365*canv_h/650.0);
+  rect((90*canv_w/1200.0)-(150*canv_w/2400.0),(canv_h/2-20)-(365*canv_h/1300),(90*canv_w/1200.0)+(150*canv_w/2400.0),canv_h-5);
+  // rectMode(CENTER);
+  // fill(220);
+  // rect(90*canv_w/1200.0,canv_h/2-20,150*canv_w/1200.0,500*canv_h/650.0);
+  //rectMode(CENTER);
+  //rect(canv_w-100*canv_w/1200.0,canv_h/2-20,175*canv_w/1200.0,365*canv_h/650.0);
+  rect((canv_w-100*canv_w/1200.0)-(175*canv_w/1800.0),(canv_h/2-20)-(365*canv_h/1300),(canv_w), canv_h-10);
   fill(0);
   //greet the user
   textSize(32);
@@ -243,34 +248,34 @@ function draw(){
   //run_button.updateButton();
 
   //hook timers up to global boolean vars
-  TA1box.en = T1_EN;
-  TA0box.en = T0_EN;
-  TA0box.duration = T0_DUR;
-  TA1box.duration = T1_DUR;
-  TA0box.update();
-  TA1box.update();
-  TA0 = TA0box.elapsed;
-  T0 = TA0box.state;
-
-  TA1 = TA1box.elapsed;
-  T1 = TA1box.state;
-
-
-  //hook timers up to global boolean vars
-  CTA0box.down = CT0_DOWN;
-  CTA0box.up = CT0_UP;
-  CTA1box.down = CT1_DOWN;
-  CTA1box.up = CT1_UP;
-  CTA0box.RST = CT0_RST;
-  CTA1box.RST = CT1_RST;
-  CTA1box.thresh = CT1_CNT;
-  CTA0box.thresh = CT0_CNT;
-  CTA0box.update();
-  CTA1box.update();
-  CTA0 = CTA0box.count;
-  CTA1 = CTA1box.count;
-  CT0 = CTA0box.state;
-  CT1 = CTA1box.state;
+  // TA1box.en = T1_EN;
+  // TA0box.en = T0_EN;
+  // TA0box.duration = T0_DUR;
+  // TA1box.duration = T1_DUR;
+  // TA0box.update();
+  // TA1box.update();
+  // TA0 = TA0box.elapsed;
+  // T0 = TA0box.state;
+  //
+  // TA1 = TA1box.elapsed;
+  // T1 = TA1box.state;
+  //
+  //
+  // //hook timers up to global boolean vars
+  // CTA0box.down = CT0_DOWN;
+  // CTA0box.up = CT0_UP;
+  // CTA1box.down = CT1_DOWN;
+  // CTA1box.up = CT1_UP;
+  // CTA0box.RST = CT0_RST;
+  // CTA1box.RST = CT1_RST;
+  // CTA1box.thresh = CT1_CNT;
+  // CTA0box.thresh = CT0_CNT;
+  // CTA0box.update();
+  // CTA1box.update();
+  // CTA0 = CTA0box.count;
+  // CTA1 = CTA1box.count;
+  // CT0 = CTA0box.state;
+  // CT1 = CTA1box.state;
 
 
 
