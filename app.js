@@ -287,7 +287,7 @@ function draw(){
 
   X6 = T0_EN;
 
-  V9 = V1&&X1&&X2&&X3;
+  V9 = X1&&X2&&X3;
   V21 = V1&&!V9;
   V10 = V2&&V9&&X4&&X5;
   V11 = V3&&T0&&V10;
