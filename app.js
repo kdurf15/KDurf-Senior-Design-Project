@@ -22,6 +22,8 @@ var Y3=false;
 var Y4 = false;
 var Y5 = false;
 var Y6 = false;
+var Y7 = false;
+var Y8 = false;
 
 //lol
 //internal "coils"
@@ -136,12 +138,14 @@ function setup(){
   var outsepx = 100*canv_w/1200.0;
   var outsepy = 100*canv_h/650.0;
 
-  Y1light = new outputLight(outox,outoy,buttondscaled,color(128,0,0),color(255,0,0),'Y1',12);
-  Y2light = new outputLight(outox,outoy+outsepy,buttondscaled,color(128,128,0),color(255,255,0),'Y2',12);
-  Y3light = new outputLight(outox,outoy+2*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'Y3',12);
-  Y4light = new outputLight(outox+outsepx,outoy,buttondscaled,color(128,0,0),color(255,0,0),'Y4',12);
-  Y5light = new outputLight(outox+outsepx,outoy+outsepy,buttondscaled,color(128,128,0),color(255,255,0),'Y5',12);
-  Y6light = new outputLight(outox+outsepx,outoy+2*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'Y6',12);
+  Y1light = new outputLight(outox,outoy,buttondscaled,color(128,0,0),color(255,0,0),'GLV OFF',12);
+  Y2light = new outputLight(outox,outoy+outsepy,buttondscaled,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
+  Y3light = new outputLight(outox,outoy+2*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'Precharge',12);
+  Y4light = new outputLight(outox,outoy+3*outsepy,buttondscaled,color(128,0,0),color(255,0,0),'TS ENRGZD, NRTD',12);
+  Y5light = new outputLight(outox+outsepx,outoy,buttondscaled,color(128,128,0),color(255,255,0),'TS ENRGZD, RTD',12);
+  Y6light = new outputLight(outox+outsepx,outoy+outsepy,buttondscaled,color(0,128,0),color(0,255,0),'AMS FLT',12);
+  Y7light = new outputLight(outox+outsepx,outoy+2*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'IMD FLT',12);
+  Y8light = new outputLight(outox+outsepx,outoy+3*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'BOTS',12);
 
   var intox = canv_w/2-300*canv_w/1200.0;
   var intoy = 200*canv_h/650;
@@ -328,6 +332,8 @@ function draw(){
   Y4light.state = Y4;
   Y5light.state = Y5;
   Y6light.state = Y6;
+  Y7light.state = Y7;
+  Y8light.state = Y8;
 
   V1light.state = V1;
   V2light.state = V2;
@@ -367,6 +373,9 @@ function draw(){
   Y4light.drawLight();
   Y5light.drawLight();
   Y6light.drawLight();
+  Y7light.drawLight();
+  Y8light.drawLight();
+
   V1light.drawLight();
   V2light.drawLight();
   V3light.drawLight();
