@@ -289,7 +289,7 @@ function draw(){
   X9 = in9_button.state;
   X10 = in10_button.state;
 
-  X6 = T0_EN;
+  //X6 = T0_EN;
 
   // V9 = V1&&X1&&X2&&X3;
   // V21 = V1&&!V9;
@@ -316,7 +316,11 @@ function draw(){
   V18 = V8&&(!X10&&!X4&&!X5);
   V19 = V7&&(!X9&&!X4&&!X5);
 
-  Y1 = V22||V21; //actual V21, not placeholder in code currently
+  //inital condition to have Y1 on when GLVMS if off, make sure breaks when GLVMS is on
+  V22 = !X1;
+
+  //Y1 = V22||V21; //actual V21, not placeholder in code currently
+  Y1 = V22
   Y2 = V9||V23||V14||V18||V19||V20;
   Y3 = V10||V26||V27;
   Y4 = V11||V25;
@@ -334,17 +338,17 @@ function draw(){
   V7 = Y7;
   V8 = Y8;
 
-  if(run_button.newtouch){
-    runCallback();
-  }
-  try{
-    eval(inputCode);
-  }
-  catch(e){
-    inputCode = savedInputCode;
-    eval(inputCode);
-    alert(e+".  Fix Error and Update To Continue!");
-  }
+  // if(run_button.newtouch){
+  //   runCallback();
+  // }
+  // try{
+  //   eval(inputCode);
+  // }
+  // catch(e){
+  //   inputCode = savedInputCode;
+  //   eval(inputCode);
+  //   alert(e+".  Fix Error and Update To Continue!");
+  // }
 
   //boolean algebra block 4
   Y1light.state = Y1;
