@@ -2,6 +2,15 @@
 // var touchX =0;
 // var touchY=0;
 
+
+//test variable for precahrge_count instead of button placeholder design
+var precharge_state=false;
+var precharge_count=0;
+
+//attempt implementing precharge slider
+var precharge_slider;
+
+
 var in1_button;
 var in2_button;
 //var run_button;
@@ -100,6 +109,29 @@ var canv_h = 650;
 // var inputCode;//this is the string that we will execute as code
 // var savedInputCode;
 
+//implement ready to drive sound
+// let track1;
+//
+// var tracks;
+// var numTracks;
+
+let rtds = new Audio('180077__iykqic0__sine-wave-2000-hz.wav');
+var sound_count = 0;
+
+// function soundSetup(){
+//   soundFormats('mp3','wav');
+//   console.log("loading sounds")
+//   errorSound = loadSound('assets/sounds/error.mp3');
+//   track1 = loadSound('assets/sounds/WIF/track1.mp3');
+//
+//   tracks = [track1];
+//   //numTracks = tracks.length;
+//   numTracks = 1;
+//   soundsLoaded = true;
+//   console.log("sounds loaded")
+//
+// }
+
 function setup(){
   var canvas = createCanvas(canv_w,canv_h);
   canvas.parent('sketch-holder');
@@ -184,6 +216,9 @@ function setup(){
   V26light = new outputLight(intox+4*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V26',12);
   V27light = new outputLight(intox+5*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V27',12);
 
+  //implement slider
+  precharge_slider = new XSlider(canv_w/2, 600, 100000, 0, 100, precharge_count, "precharge");
+  //kp_slider= new XSlider(300, canv_h, 100, 0, 50, 0, "proportional gain");
 //
 //var timox = canv_w/2-250;
 //var timoy = 500*canv_h/650;
@@ -314,7 +349,7 @@ function draw(){
   so that I can possibly rework code to only be in one output state at once*/
   V9 = X1&&X2&&X3;
   V21 = V1&&!V9;
-  V10 = V2&&V9&&X4&&X5;
+  V10 = V2&&V9&&X4&&X5; //v10 is what initializes the car to enter precharge state
   V11 = V3&&V10&&X6;
   V12 = V4&&X7;
   V13 = V5&&!X7;
@@ -325,6 +360,16 @@ function draw(){
   V18 = V8&&(!X10&&!X4&&!X5);
   V19 = V7&&(!X9&&!X4&&!X5);
 
+  if(V10==true){
+    for(var i=0; i<=100000;i++){
+      precharge_count++;
+      if(precharge_count>=90000){
+        //X6=true;
+        precharge_state=true;
+      }
+    }
+  }
+
   //inital condition to have Y1 on when GLVMS if off, make sure breaks when GLVMS is on
   V22 = !X1;
 
@@ -332,7 +377,7 @@ function draw(){
   Y1 = V22
   Y2 = V9||V23||V14||V18||V19||V20;
   Y3 = V10||V26||V27;
-  Y4 = V11||V25;
+  Y4 = V11||V25;//||precharge_state;
   Y5 = V12||V24;
   Y6 = V15;
   Y7 = V16;
@@ -346,6 +391,20 @@ function draw(){
   V6 = Y6;
   V7 = Y7;
   V8 = Y8;
+
+  //try implementing ready to drive sounds
+  if(V12){
+    if(sound_count<=0){
+      rtds.play();
+      sound_count++;
+    }
+    //rtds.play();
+    //rtds.stop();
+  }
+  if(!V12){
+    sound_count=0;
+  }
+
 
   /*have to/want to edit it so that I am in only one state at a time (with outputs and such)
   ask how to do this, because it might be conflicting with how the code builds off previous states
@@ -441,6 +500,15 @@ function draw(){
   V25light.drawLight();
   V26light.drawLight();
   V27light.drawLight();
+
+  //slider implementation attempt
+  //precharge_slider.slpos = precharge_count;
+  //precharge_slider.drawSlider();
+  //precharge_count = precharge_slider.slpos;
+
+  // kp_slider.slpos = kp;
+  // kp_slider.drawSlider();
+  // kp = kp_slider.slpos;
 
 
 
@@ -814,4 +882,61 @@ stroke(0);
 textSize(12);
 text(this.label, this.x, this.y+this.d);
 }
+}
+
+function XSlider(ixorg, iyorg, ilen, imin, imax, islpos, ilabel) {
+    this.xorg = ixorg;
+    this.yorg = iyorg;
+    this.len = ilen;
+    this.slpos = islpos;
+    this.min = imin;
+    this.max = imax;
+    this.label = ilabel;
+    this.sliderstroke = color(0, 0, 0);
+    this.sliderfill = color(0, 0, 0);
+    this.was_pressed=false;
+    this.held=false;
+
+  this.drawSlider=function() {
+    //box_x = (slpos-min)*len/(max-min);
+    this.updateSlider();
+    stroke(this.sliderstroke);
+    fill(this.sliderfill);
+    line(this.xorg, this.yorg, this.xorg+this.len, this.yorg);
+    rectMode(CENTER);
+    this.box_x = (this.slpos-this.min)*this.len/(this.max-this.min);
+    rect(this.xorg+this.box_x, this.yorg, this.len*.2, this.len*.1);
+    textSize(12);
+    text(this.label+": "+nf(this.slpos, 1, 2), this.xorg, this.yorg-this.len*.1);
+  }
+
+  this.updateSlider = function() {
+    this.box_x = (this.slpos-this.min)*this.len/(this.max-this.min);
+    //console.log(touches)
+    if ((mouseIsPressed && !this.was_pressed && !this.held)||(mouseIsPressed && !this.was_pressed && !this.held)) {
+
+      //println((xorg+box_x-mouseX));
+      if (abs(this.xorg+this.box_x-mouseX)<0.2*this.len && abs(this.yorg-mouseY)<0.2*this.len) {
+        this.held=true;
+        //println("held");
+      }
+    } else if ((mouseIsPressed && this.held)||(mouseIsPressed && this.held)) {
+      this.held = true;
+    } else {
+      this.held=false;
+    }
+    //println(mouseX-xorg);
+    this.was_pressed=Im_touched||mouseIsPressed;
+    if (this.held==true) {
+      //update slider if the box is being dragged
+      this.box_x = mouseX-this.xorg;
+      if (mouseX>this.xorg+this.len) {
+        this.box_x = this.len;
+      }
+      if (mouseX<this.xorg) {
+        this.box_x=0;
+      }
+      this.slpos = this.min+(this.max-this.min)*this.box_x/this.len;
+    }
+  }
 }
