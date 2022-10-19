@@ -217,7 +217,7 @@ function setup(){
   V27light = new outputLight(intox+5*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V27',12);
 
   //implement slider
-  precharge_slider = new XSlider(canv_w/2, 600, 100000, 0, 100, precharge_count, "precharge");
+  precharge_slider = new XSlider(canv_w/2, canv_h/2, 100, 0, 100, 10, "precharge");
   //kp_slider= new XSlider(300, canv_h, 100, 0, 50, 0, "proportional gain");
 //
 //var timox = canv_w/2-250;
@@ -360,15 +360,15 @@ function draw(){
   V18 = V8&&(!X10&&!X4&&!X5);
   V19 = V7&&(!X9&&!X4&&!X5);
 
-  if(V10==true){
-    for(var i=0; i<=100000;i++){
-      precharge_count++;
-      if(precharge_count>=90000){
-        //X6=true;
-        precharge_state=true;
-      }
-    }
-  }
+  // if(V10){
+  //   for(var i=0; i<=100000;i++){
+  //     precharge_count++;
+  //     if(precharge_count>=90000){
+  //       //X6=true;
+  //       precharge_state=true;
+  //     }
+  //   }
+  // }
 
   //inital condition to have Y1 on when GLVMS if off, make sure breaks when GLVMS is on
   V22 = !X1;
@@ -403,7 +403,12 @@ function draw(){
   }
   if(!V12){
     sound_count=0;
-  }
+  }//convert this to an else or else if, to clean up the code
+
+  //slider implementation attempt //quick location: slider
+  precharge_slider.slpos = 10;
+  precharge_slider.drawSlider();
+  //precharge_count = precharge_slider.slpos;
 
 
   /*have to/want to edit it so that I am in only one state at a time (with outputs and such)
@@ -926,7 +931,7 @@ function XSlider(ixorg, iyorg, ilen, imin, imax, islpos, ilabel) {
       this.held=false;
     }
     //println(mouseX-xorg);
-    this.was_pressed=Im_touched||mouseIsPressed;
+    this.was_pressed=mouseIsPressed;
     if (this.held==true) {
       //update slider if the box is being dragged
       this.box_x = mouseX-this.xorg;
