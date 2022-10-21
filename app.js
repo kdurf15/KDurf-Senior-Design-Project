@@ -10,6 +10,20 @@ var precharge_count=0;
 //attempt implementing precharge slider
 var precharge_slider;
 
+//implementing seconds counter to make precharge 100% last 10seconds
+// var seconds = 0;
+// //var el = document.getElementById('seconds-counter');
+//
+// function incrementSeconds() {
+//     seconds += 1;
+//     //el.innerText = "You have been here for " + seconds + " seconds.";
+// }
+//
+// var cancel = setInterval(incrementSeconds, 1000);
+let [milliseconds,seconds] = [0,0];
+// let timerRef = document.querySelector('.timerDisplay');
+let int = null;
+
 
 var in1_button;
 var in2_button;
@@ -217,7 +231,8 @@ function setup(){
   V27light = new outputLight(intox+5*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V27',12);
 
   //implement slider
-  precharge_slider = new XSlider(canv_w/2, canv_h/2, 100, 0, 100, 10, "precharge");
+  precharge_slider = new XSlider(canv_w/2, 600, 100, 0, 10, seconds, "precharge");
+  //precharge_slider = new XSlider(canv_w/2, 600, 100, 0, 100, millis(), "precharge");
   //kp_slider= new XSlider(300, canv_h, 100, 0, 50, 0, "proportional gain");
 //
 //var timox = canv_w/2-250;
@@ -361,14 +376,72 @@ function draw(){
   V19 = V7&&(!X9&&!X4&&!X5);
 
   // if(V10){
-  //   for(var i=0; i<=100000;i++){
+  //   int = setInterval(prechargeTimer,10);
+  // }
+  // if(!V10){
+  //   //int = null;
+  //   setInterval(prechargeTimer,-10);
+  //   clearInterval(int);
+  //   clearInterval(prechargeTimer);
+  //   [milliseconds,seconds] = [0,0];
+  //   //timerRef.innerHTML = '00 : 00 : 00 : 000 ';
+  // }
+
+  // if(int!==null){
+  //       clearInterval(int);
+  //   }
+  //   int = setInterval(prechargeTimer,10);
+  // if(!V10){
+  //       clearInterval(int);
+  //   }
+  //   int = setInterval(prechargeTimer,10);
+  if(V10){
+    clearInterval(int);
+    int=setInterval(prechargeTimer,10);
+  }
+  //int=setInterval(prechargeTimer,10);
+  if(!V10){
+    clearInterval(int);
+    [milliseconds,seconds]=[0,0];
+    precharge_state=false;
+  }
+  if(seconds>=9){
+    precharge_state=true;
+  }
+
+
+  // if(V10){
+  //   for(var i=0; i<=100;i++){
   //     precharge_count++;
-  //     if(precharge_count>=90000){
+  //     if(precharge_count>=90){
   //       //X6=true;
   //       precharge_state=true;
   //     }
   //   }
   // }
+  // if(!V10){
+  //   precharge_count = 0;
+  // }
+
+  // if(V10){
+  //   let precharge_time = millis();
+  //   if(precharge_time%1000 == 0){
+  //     if(precharge_time != 0){
+  //       precharge_count = precharge_count+1;
+  //     }
+  //   }
+
+
+//   var i = 1;
+//   var interval = setInterval( increment, 1000);
+//
+// function increment(){
+//     i = i % 360 + 1;
+// }
+// if(int!==null){
+//         clearInterval(int);
+//     }
+//     int = setInterval(displayTimer,10);
 
   //inital condition to have Y1 on when GLVMS if off, make sure breaks when GLVMS is on
   V22 = !X1;
@@ -377,7 +450,7 @@ function draw(){
   Y1 = V22
   Y2 = V9||V23||V14||V18||V19||V20;
   Y3 = V10||V26||V27;
-  Y4 = V11||V25;//||precharge_state;
+  Y4 = V11||V25||precharge_state;
   Y5 = V12||V24;
   Y6 = V15;
   Y7 = V16;
@@ -406,9 +479,14 @@ function draw(){
   }//convert this to an else or else if, to clean up the code
 
   //slider implementation attempt //quick location: slider
-  precharge_slider.slpos = 10;
+  precharge_slider.slpos = seconds;
   precharge_slider.drawSlider();
   //precharge_count = precharge_slider.slpos;
+
+  // //temporary precharge slider line solution (fake solution to fill out line unitil figure out how to fix)
+  // line(canv_w/2-10,600,canv_w/2+20,600);
+  // //line(this.xorg, this.yorg, this.xorg+this.len, this.yorg);
+  // //precharge_slider = new XSlider(canv_w/2, 600, 100, 0, 100, 0, "precharge");
 
 
   /*have to/want to edit it so that I am in only one state at a time (with outputs and such)
@@ -571,6 +649,24 @@ function draw(){
 //   Y3=false;
 //   SP0=true;
 //
+// }
+
+function prechargeTimer(){
+  if(seconds<10){
+    milliseconds+=10;
+
+    if(milliseconds==1000){
+      milliseconds=0;
+      seconds++
+    }
+  }
+}
+//   milliseconds+=10;
+//
+//   if(milliseconds==1000){
+//     milliseconds=0;
+//     seconds++;
+//   }
 // }
 
 function outputLight(ix,iy,id,icolorFalse,icolorTrue,ilabel,itextSize){
