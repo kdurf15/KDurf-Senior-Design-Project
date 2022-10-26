@@ -16,3 +16,6 @@ To further help understand the State Transition Table, as well as the javascript
 <img width="586" alt="Screen Shot 2022-10-26 at 2 12 02 PM" src="https://user-images.githubusercontent.com/113051608/198103940-14fd22e9-327f-42b6-9ddd-91d90e6cbcd0.png">
 
 <img width="609" alt="Screen Shot 2022-10-26 at 2 12 33 PM" src="https://user-images.githubusercontent.com/113051608/198103954-0f4f12a3-733e-494b-9483-dc91200ce20d.png">
+
+
+For ease of access, the educational Safety Loop simulation can be found here: https://kdurf15.github.io/KDurf-Senior-Design-Project/
