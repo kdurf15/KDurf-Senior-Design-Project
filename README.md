@@ -4,7 +4,10 @@ For my (Kevin Durfee's) Senior Design project, I have created and implemented an
 Shown below is the FSM Diagram for the Safety Loop system, with the omission of lights/sounds. Along with it is the state transition table for the respective FSM. 
 
 <p align="center">
+![Safety Loop (re-colored for transparent github background) drawio](https://user-images.githubusercontent.com/113051608/206012008-44bc7981-c505-45cb-9ea6-4de0e251e9de.png)
 <img width="799" alt="Screen Shot 2022-10-26 at 2 03 48 PM" src="https://user-images.githubusercontent.com/113051608/198102307-8916d10d-bd87-4f29-a7b1-1217755f55f3.png">
+![Uploading Safety Loop (re-colored for transparent github background).drawio.png…]()
+
 
 <img width="615" alt="Screen Shot 2022-10-26 at 2 07 39 PM" src="https://user-images.githubusercontent.com/113051608/198102986-43ce1c87-8912-474d-b750-fd08169fbbb0.png">
 </p>
