@@ -117,8 +117,10 @@ var V27 = false;
 
 var SP0 = true;
 
-var canv_w = 1000;
-var canv_h = 650;
+//var canv_w = 1000;
+//var canv_h = 650;
+var canv_w = 1780;
+var canv_h = 858;
 
 // var inputCode;//this is the string that we will execute as code
 // var savedInputCode;
@@ -129,8 +131,26 @@ var canv_h = 650;
 // var tracks;
 // var numTracks;
 
+//let background = new img('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
+//let background = new PImage;
+//let background = new PImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
+//document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')";
+//const img = new Image();   // Create new img element
+//img.src = 'Senior Design Project Sim Cockpit Design - No Buttons.jpg'; // Set source path
+//let backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
+let backgrnd;
+let brb_off;
+let green_off;
+let green_on;
+
 let rtds = new Audio('180077__iykqic0__sine-wave-2000-hz.wav');
 var sound_count = 0;
+
+//<div id="sketch-holder"><canvas id="defaultCanvas0" class="p5Canvas" width="1000" height="650" style="width: 1000px; height: 0px;"></canvas></div>
+//<canvas id="canvas" width="800" height="600" style="background: url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')">
+
+//<div id="sketch-holder"><canvas id="defaultCanvas0" class="p5Canvas" width="3000" height="1440" style="background: url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')"></canvas></div>
+
 
 // function soundSetup(){
 //   soundFormats('mp3','wav');
@@ -146,14 +166,38 @@ var sound_count = 0;
 //
 // }
 
+//const myCanvas = document.getElementById('my-canvas'); const myContext = myCanvas.getContext('2d');
+//const canvas = document.getElementById('canvas'); const context = canvas.getContext('2d'); const img = new Image();
+//img.src = 'Senior Design Project Sim Cockpit Design - No Buttons.jpg';
+//img.onload = () => {context.drawImage(img, 0, 0);};
+
 function setup(){
+  //background = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
+  //var canvas = document.body.style.Image = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')";
+  //var canvas = createCanvas
+  //C:\Users\Durf\Desktop\Durf Project\Senior Design Project Sim Cockpit Design - No Buttons.jpg
+  backgrnd = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/main/Senior%20Design%20Project%20Sim%20Cockpit%20Design%20-%20Scaled2.jpg')
+  backgrnd = loadImage('Senior Design Project Sim Cockpit Design - Scaled2.jpg')
+  brb_off = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/main/BRB%20Not%20Engaged.png');
+  brb_off = loadImage('BRB Not Engaged.png');
+  brb_on = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/main/BRB%20Engaged.png');
+  brb_on = loadImage('BRB Engaged.png');
+  green_off = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/main/GreenNotEngaged.png');
+  green_off = loadImage('GreenNotEngaged.png');
+  green_on = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/main/GreenEngaged.png');
+  green_on = loadImage('GreenEngaged.png')
+
   var canvas = createCanvas(canv_w,canv_h);
-  canvas.parent('sketch-holder');
+  //var canvas = img;
+  //canvas.parent('sketch-holder');
   frameRate(30);
   stroke(0);
-  fill(0);
-  background(220);
+  //fill(200,50,50);
+  //background(0);
+  //background(document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')");
   textAlign(CENTER);
+  //backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
+  //image(backgrnd, -backgrnd.width/4, -backgrnd.height/2, backgrnd.width / 2, backgrnd.height / 2);
 
   // canvas.addEventListener("touchstart", touchDown, false);
   // canvas.addEventListener("touchmove", touchXY, true);
@@ -164,18 +208,24 @@ function setup(){
   var insepx = 75*canv_w/1200.;
   var insepy = 100*canv_h/650.0;
   var buttondscaled = 50.0*canv_w/1200;
-  //textFont('Arial',32);
-  in1_button = new RadioButton(inox,inoy,buttondscaled,'GLVMS');
-  in2_button = new RadioButton(inox,inoy+insepy,buttondscaled,'BRB S1');
-  in3_button = new RadioButton(inox,inoy+2*insepy,buttondscaled,'BRB S2');
-  in4_button = new RadioButton(inox,inoy+3*insepy,buttondscaled,'BRB Cock');
-  in5_button = new RadioButton(inox,inoy+4*insepy,buttondscaled,'TSMS');
-  in6_button = new RadioButton(inox+insepx,inoy,buttondscaled,'PC TBD');
-  in7_button = new RadioButton(inox+insepx,inoy+insepy,buttondscaled,'MC');
-  in8_button = new RadioButton(inox+insepx,inoy+2*insepy,buttondscaled,'FAMS');
-  in9_button = new RadioButton(inox+insepx,inoy+3*insepy,buttondscaled,'FIMD');
-  in10_button = new RadioButton(inox+insepx,inoy+4*insepy,buttondscaled,'BOTS');
 
+  var brb_cock_locx = 1325;
+  var brb_cock_locy = 235;
+  var new_buttondscaled = 60;
+  //textFont('Arial',32);
+  in1_button = new RadioButton_greenBig(75,150,buttondscaled,'GLVMS');
+  in2_button = new RadioButton(75,50,buttondscaled,'BRB S1');
+  in3_button = new RadioButton(canv_w-75,50,buttondscaled,'BRB S2');
+  //in4_button = new RadioButton(inox,inoy+3*insepy,buttondscaled,'BRB Cock');
+  in5_button = new RadioButton_green(1325-75,235,new_buttondscaled,'TSMS');
+  //in5_button = new RadioButton(1350,245,100,'TSMS');
+  in6_button = new RadioButton(canv_w+100,canv_h+100,buttondscaled,'PC TBD');
+  in7_button = new RadioButton_greenBig(180,50,buttondscaled,'MC');
+  in8_button = new RadioButton_reg(75,canv_h-60,buttondscaled,'FAMS');
+  in9_button = new RadioButton_reg(75,canv_h-150,buttondscaled,'FIMD');
+  in10_button = new RadioButton_reg(180,canv_h-60,buttondscaled,'BOTS');
+
+  in4_button = new RadioButton_small(1325,235,new_buttondscaled,'BRB Cock');
   //run_button = new MomentaryButton(75*canv_w/1200.0,550*canv_h/650.0,buttondscaled/2,'Update',18);
 
   //output lights
@@ -184,14 +234,33 @@ function setup(){
   var outsepx = 100*canv_w/1200.0;
   var outsepy = 100*canv_h/650.0;
 
-  Y1light = new outputLight(outox,outoy,buttondscaled,color(128,0,0),color(255,0,0),'GLV OFF',12);
-  Y2light = new outputLight(outox,outoy+outsepy,buttondscaled,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
-  Y3light = new outputLight(outox,outoy+2*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'Precharge',12);
-  Y4light = new outputLight(outox,outoy+3*outsepy,buttondscaled,color(128,0,0),color(255,0,0),'TS ENRGZD, NRTD',12);
-  Y5light = new outputLight(outox+outsepx,outoy,buttondscaled,color(128,128,0),color(255,255,0),'TS ENRGZD, RTD',12);
-  Y6light = new outputLight(outox+outsepx,outoy+outsepy,buttondscaled,color(0,128,0),color(0,255,0),'AMS FLT',12);
-  Y7light = new outputLight(outox+outsepx,outoy+2*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'IMD FLT',12);
-  Y8light = new outputLight(outox+outsepx,outoy+3*outsepy,buttondscaled,color(0,128,0),color(0,255,0),'BOTS',12);
+  // Y1light = new outputLight(550,canv_h-75,buttondscaled,color(128,0,0),color(255,0,0),'GLV OFF',12);
+  // Y2light = new outputLight(650,canv_h-75,buttondscaled,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
+  // Y3light = new outputLight(750,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'Precharge',12);
+  // Y4light = new outputLight(850,canv_h-75,buttondscaled,color(128,0,0),color(255,0,0),'TS ENRGZD, NRTD',12);
+  // Y5light = new outputLight(950,canv_h-75,buttondscaled,color(128,128,0),color(255,255,0),'TS ENRGZD, RTD',12);
+  // Y6light = new outputLight(1050,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'AMS FLT',12);
+  // Y7light = new outputLight(1150,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'IMD FLT',12);
+  // Y8light = new outputLight(1250,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'BOTS',12);
+
+  // Y1light = new outputLight(750,400,25,color(128,0,0),color(255,0,0),'GLV OFF',12);
+  // Y2light = new outputLight(780,440,25,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
+  // Y3light = new outputLight(810,480,25,color(0,128,0),color(0,255,0),'Precharge',12);
+  // Y4light = new outputLight(955,400,25,color(128,0,0),color(255,0,0),'TS ENRGZD, NRTD',12);
+  // Y5light = new outputLight(935,440,25,color(128,128,0),color(255,255,0),'TS ENRGZD, RTD',12);
+  // Y6light = new outputLight(905,480,25,color(0,128,0),color(0,255,0),'AMS FLT',12);
+  // Y7light = new outputLight(885,520,25,color(0,128,0),color(0,255,0),'IMD FLT',12);
+  // Y8light = new outputLight(840,520,25,color(0,128,0),color(0,255,0),'BOTS',12);
+
+  Y1light = new outputLight(750,400,25,color(0,128,0),color(0,255,0),'GLV OFF',12);
+  Y2light = new outputLight(770,440,25,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
+  Y3light = new outputLight(810,480,25,color(0,128,0),color(0,255,0),'Precharge',12);
+  Y4light = new outputLight(955,400,25,color(128,128,0),color(255,255,0),'TS ENRGZD, NRTD',12);
+  Y5light = new outputLight(945,440,25,color(0,128,0),color(0,255,0),'TS ENRGZD, RTD',12);
+  Y6light = new outputLight(905,480,25,color(128,0,0),color(255,0,0),'AMS FLT',12);
+  Y7light = new outputLight(895,520,25,color(128,0,0),color(255,0,0),'IMD FLT',12);
+  Y8light = new outputLight(835,520,25,color(128,0,0),color(255,0,0),'BOTS',12);
+
 
   var intox = canv_w/2-300*canv_w/1200.0;
   var intoy = 200*canv_h/650;
@@ -231,7 +300,7 @@ function setup(){
   V27light = new outputLight(intox+5*intsepx,intoy+3*intsepy,buttondscaled,color(0,0,255),color(255,0,0),'V27',12);
 
   //implement slider
-  precharge_slider = new XSlider(canv_w/2, 600, 100, 0, 10, seconds, "precharge");
+  precharge_slider = new XSlider(canv_w/2-65, canv_h-10, 100, 0, 10, seconds, "precharge");
   //precharge_slider = new XSlider(canv_w/2, 600, 100, 0, 100, millis(), "precharge");
   //kp_slider= new XSlider(300, canv_h, 100, 0, 50, 0, "proportional gain");
 //
@@ -256,30 +325,48 @@ function setup(){
 }
 
 function draw(){
-  background(220);
-  fill(0);
-  stroke(0);
-  rectMode(CORNERS);
-  fill(220);
-  rect((90*canv_w/1200.0)-(150*canv_w/2400.0),(canv_h/2-20)-(365*canv_h/1300),(90*canv_w/1200.0)+(150*canv_w/2400.0),canv_h-5);
+  //background(document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')");
+  //backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
+  //background(backgrnd);
+  //image(back)
+  //background(document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')");
+  //background(loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg'));
+  //fill(0,10);
+  //noFill();
+  //stroke(0);
+  //backgrnd = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/d2ea4ad16ee0c7c86eb3ebd4b53dfd5999aeeaec/Senior%20Design%20Project%20Sim%20Cockpit%20Design%20-%20No%20Buttons.jpg');
+  //backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
+  //background(loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg'));
+  //image(backgrnd, -backgrnd.width/4, -backgrnd.height/2, backgrnd.width / 2, backgrnd.height / 2);
+  image(backgrnd,0,0);
+  //tint(255, 0);
+
+  //test2
+  //rectMode(CORNERS);
+  //fill(220,10);
+  //rect((90*canv_w/1200.0)-(150*canv_w/2400.0),(canv_h/2-20)-(365*canv_h/1300),(90*canv_w/1200.0)+(150*canv_w/2400.0),canv_h-5);
   // rectMode(CENTER);
   // fill(220);
   // rect(90*canv_w/1200.0,canv_h/2-20,150*canv_w/1200.0,500*canv_h/650.0);
   //rectMode(CENTER);
   //rect(canv_w-100*canv_w/1200.0,canv_h/2-20,175*canv_w/1200.0,365*canv_h/650.0);
-  rect((canv_w-100*canv_w/1200.0)-(175*canv_w/1800.0),(canv_h/2-20)-(365*canv_h/1300),(canv_w), canv_h-100);
-  fill(0);
+  //rect((canv_w-100*canv_w/1200.0)-(175*canv_w/1800.0),(canv_h/2-20)-(365*canv_h/1300),(canv_w), canv_h-100);
+  fill(255);
   //greet the user
   textSize(32);
-  text("Mock Safety Loop Simulator",canv_w/2,50);
+  text("Mock Safety Loop Simulator",canv_w/2,72.5);
+
+
   //textSize(12);
   //text("Type your Boolean Algebra code in javascript in the input box below the simulator. Hit update to see the effects of your Boolean Algebra program on the outputs/variables.",canv_w/2,75);
   //text("You can use any of the momentary inputs (X1-X3), latching inputs (X4-X6), outputs (Yx) or intermediate variables (Vx) shown on the screen in your program.",canv_w/2,95);
   //text("You can also assign timer inputs Tx_EN, and counter inputs CTx_UP/CTx_DOWN to use timers and counters in your program. ",canv_w/2,115);
   //textSize(32);
-  text("Inputs",90*canv_w/1200.,160);
-  text("Outputs",(canv_w-100*canv_w/1200.0),160);
-  text("Internal Variables",canv_w/2,160);
+  //test2
+  // text("Inputs",90*canv_w/1200.,160);
+  // text("Outputs",(canv_w-100*canv_w/1200.0),160);
+  // text("Internal Variables",canv_w/2,160);
+
   //textSize(18);
   //text("Your Code Goes Below Here. Use only variable names you see in the simulator",canv_w/2,640);
 
@@ -364,9 +451,13 @@ function draw(){
   so that I can possibly rework code to only be in one output state at once*/
   V9 = X1&&X2&&X3;
   V21 = V1&&!V9;
-  V10 = V2&&V9&&X4&&X5; //v10 is what initializes the car to enter precharge state
+  V10 = V9&&X4&&X5;
+  //V10 = V2&&V9&&X4&&X5 //v10 is what initializes the car to enter precharge state
   V11 = V3&&V10&&X6;
-  V12 = V4&&X7;
+  //V11 = V3&&V10;
+  //V12 = V4&&X7;
+  V12 = X7&&X5&&X4&&X3&&X2&&X1&&(seconds>=9);
+  //V12 = X7&&Y4;
   V13 = V5&&!X7;
   V14 = (V3||V4||V5)&&(!X4||!X5);
   V15 = (V3||V4||V5)&&X8;
@@ -448,18 +539,18 @@ function draw(){
 
   //Y1 = V22||V21; //actual V21, not placeholder in code currently
   Y1 = V22
-  Y2 = V9||V23||V14||V18||V19||V20;
-  Y3 = V10||V26||V27;
-  Y4 = V11||V25||precharge_state;
-  Y5 = V12||V24;
-  Y6 = V15;
-  Y7 = V16;
-  Y8 = V17;
+  Y2 = (V9||V23||V14||V18||V19||V20)&&!Y3&&!Y4&&!Y5;
+  Y3 = ((V10||V26||V27)&&!Y4&&!Y5)&&!X8&&!X9&&!X10;
+  Y4 = ((V11||V25||precharge_state)&&!Y5)&&!X8&&!X9&&!X10;
+  Y5 = (V12||V24)&&!X8&&!X9&&!X10;
+  Y6 = V15||X8;
+  Y7 = V16||X9;
+  Y8 = V17||X10;
 
   V1 = Y1;
-  V2 = Y2;
+  //V2 = Y2;
   V3 = Y3;
-  V4 = Y4;
+  //V4 = Y4;
   V5 = Y5;
   V6 = Y6;
   V7 = Y7;
@@ -547,6 +638,7 @@ function draw(){
 
   //set light states to Y variables;
   //light up outputs
+  //test2
   Y1light.drawLight();
   Y2light.drawLight();
   Y3light.drawLight();
@@ -556,33 +648,33 @@ function draw(){
   Y7light.drawLight();
   Y8light.drawLight();
 
-  V1light.drawLight();
-  V2light.drawLight();
-  V3light.drawLight();
-  V4light.drawLight();
-  V5light.drawLight();
-  V6light.drawLight();
-  V7light.drawLight();
-  V8light.drawLight();
-  V9light.drawLight();
-  V10light.drawLight();
-  V11light.drawLight();
-  V12light.drawLight();
-  V13light.drawLight();
-  V14light.drawLight();
-  V15light.drawLight();
-  V16light.drawLight();
-  V17light.drawLight();
-  V18light.drawLight();
-  V19light.drawLight();
-  V20light.drawLight();
-  V21light.drawLight();
-  V22light.drawLight();
-  V23light.drawLight();
-  V24light.drawLight();
-  V25light.drawLight();
-  V26light.drawLight();
-  V27light.drawLight();
+  // V1light.drawLight();
+  // V2light.drawLight();
+  // V3light.drawLight();
+  // V4light.drawLight();
+  // V5light.drawLight();
+  // V6light.drawLight();
+  // V7light.drawLight();
+  // V8light.drawLight();
+  // V9light.drawLight();
+  // V10light.drawLight();
+  // V11light.drawLight();
+  // V12light.drawLight();
+  // V13light.drawLight();
+  // V14light.drawLight();
+  // V15light.drawLight();
+  // V16light.drawLight();
+  // V17light.drawLight();
+  // V18light.drawLight();
+  // V19light.drawLight();
+  // V20light.drawLight();
+  // V21light.drawLight();
+  // V22light.drawLight();
+  // V23light.drawLight();
+  // V24light.drawLight();
+  // V25light.drawLight();
+  // V26light.drawLight();
+  // V27light.drawLight();
 
   //slider implementation attempt
   //precharge_slider.slpos = precharge_count;
@@ -600,7 +692,8 @@ function draw(){
   if(SP0==true){
     SP0=false;
   }
-
+  //image(backgrnd, -backgrnd.width/4, -backgrnd.height/2, backgrnd.width / 2, backgrnd.height / 2);
+  //background(loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg'));
 }
 
 // function runCallback(){
@@ -655,9 +748,13 @@ function prechargeTimer(){
   if(seconds<10){
     milliseconds+=10;
 
-    if(milliseconds==1000){
+    if(milliseconds==10){
       milliseconds=0;
-      seconds++
+      seconds+=0.01;
+    }
+    if(X8||X9||X10){
+      seconds=0;
+      milliseconds=0;
     }
   }
 }
@@ -693,8 +790,8 @@ function outputLight(ix,iy,id,icolorFalse,icolorTrue,ilabel,itextSize){
 
     //draw the radio button
     ellipse(this.x,this.y,this.d,this.d,2);
-    fill(0);
-    stroke(0);
+    fill(255);
+    stroke(255);
     textSize(this.textSize);
     text(this.label, this.x, this.y+this.d);
     }
@@ -934,6 +1031,100 @@ text(this.label, this.x, this.y+this.d);
 }
 }
 
+function RadioButton_small(ix,iy,id,ilabel){
+this.x = ix;
+this.y = iy;
+this.d = id;
+this.state = false;
+this.touched = false;
+this.wastouched = false;
+this.newtouch = false;
+this.label = ilabel;
+
+this.updateRadio=function(){
+  //detect whether the radio button is
+if (mouseIsPressed==true){
+  if ((sqrt(pow(mouseX-this.x,2)+pow(mouseY-this.y,2))<=this.d/2)){
+    this.touched=true;
+  }
+}
+  else{
+    this.touched=false;
+  }
+
+
+
+  if(this.touched==true & this.wastouched==false){
+    this.state = !this.state;
+  }
+  //update value of touched
+  this.wastouched = this.touched;
+
+  // if(this.touched=true){
+  //   this.drawRadioOn();
+  // }else if(this.touched=false){
+  //   this.drawRadioOff();
+  // }
+
+//draw the button
+  this.drawRadio_small();
+}
+
+// this.drawRadioOff=function(){
+// if(this.state==false){
+//   fill(255);
+// }
+// else{
+//   fill(0);
+// }
+// stroke(0);
+// //draw the radio button
+// //ellipse(this.x,this.y,this.d,this.d,2);
+// image(brb_off,this.x,this.y,this.d,this.d);
+// fill(0);
+// stroke(0);
+// textSize(12);
+// text(this.label, this.x, this.y+this.d);
+// }
+//
+//
+// this.drawRadioOn=function(){
+// if(this.state==false){
+//   fill(255);
+// }
+// else{
+//   fill(0);
+// }
+// stroke(0);
+// //draw the radio button
+// //ellipse(this.x,this.y,this.d,this.d,2);
+// image(brb_on,this.x,this.y,this.d,this.d);
+// fill(0);
+// stroke(0);
+// textSize(12);
+// text(this.label, this.x, this.y+this.d);
+// }
+
+//50.0*canv_w/1200
+
+
+this.drawRadio_small=function(){
+if(this.state==false){
+  image(brb_off,this.x-30,this.y-37.5,this.d,this.d);
+}
+else {
+  image(brb_on,this.x-30,this.y-37.5,this.d,this.d);
+}
+stroke(0);
+//draw the radio button
+//ellipse(this.x,this.y,this.d,this.d,2);
+fill(0);
+stroke(0);
+textSize(12);
+text(this.label, this.x, this.y+(5*this.d/9));
+}
+}
+
 function RadioButton(ix,iy,id,ilabel){
 this.x = ix;
 this.y = iy;
@@ -963,25 +1154,201 @@ if (mouseIsPressed==true){
   //update value of touched
   this.wastouched = this.touched;
 
+  // if(this.touched=true){
+  //   this.drawRadioOn();
+  // }else if(this.touched=false){
+  //   this.drawRadioOff();
+  // }
+
 //draw the button
   this.drawRadio();
 }
 
-
 this.drawRadio=function(){
+if(this.state==false){
+  image(brb_off,this.x-37.5,this.y-37.5,this.d,this.d);
+}
+else {
+  image(brb_on,this.x-37.5,this.y-37.5,this.d,this.d);
+}
+stroke(0);
+//draw the radio button
+//ellipse(this.x,this.y,this.d,this.d,2);
+fill(0);
+stroke(0);
+textSize(12);
+text(this.label, this.x, this.y+(2*this.d/3));
+}
+}
+
+function RadioButton_greenBig(ix,iy,id,ilabel){
+this.x = ix;
+this.y = iy;
+this.d = id;
+this.state = false;
+this.touched = false;
+this.wastouched = false;
+this.newtouch = false;
+this.label = ilabel;
+
+this.updateRadio=function(){
+  //detect whether the radio button is
+if (mouseIsPressed==true){
+  if ((sqrt(pow(mouseX-this.x,2)+pow(mouseY-this.y,2))<=this.d/2)){
+    this.touched=true;
+  }
+}
+  else{
+    this.touched=false;
+  }
+
+
+
+  if(this.touched==true & this.wastouched==false){
+    this.state = !this.state;
+  }
+  //update value of touched
+  this.wastouched = this.touched;
+
+  // if(this.touched=true){
+  //   this.drawRadioOn();
+  // }else if(this.touched=false){
+  //   this.drawRadioOff();
+  // }
+
+//draw the button
+  this.drawRadio_greenBig();
+}
+
+this.drawRadio_greenBig=function(){
+if(this.state==false){
+  image(green_off,this.x-37.5,this.y-37.5,this.d,this.d);
+}
+else {
+  image(green_on,this.x-37.5,this.y-37.5,this.d,this.d);
+}
+stroke(0);
+//draw the radio button
+//ellipse(this.x,this.y,this.d,this.d,2);
+fill(0);
+stroke(0);
+textSize(12);
+text(this.label, this.x, this.y+(2*this.d/3));
+}
+}
+
+
+
+function RadioButton_reg(ix,iy,id,ilabel){
+this.x = ix;
+this.y = iy;
+this.d = id;
+this.state = false;
+this.touched = false;
+this.wastouched = false;
+this.newtouch = false;
+this.label = ilabel;
+
+this.updateRadio=function(){
+  //detect whether the radio button is
+if (mouseIsPressed==true){
+  if ((sqrt(pow(mouseX-this.x,2)+pow(mouseY-this.y,2))<=this.d/2)){
+    this.touched=true;
+  }
+}
+  else{
+    this.touched=false;
+  }
+
+
+
+  if(this.touched==true & this.wastouched==false){
+    this.state = !this.state;
+  }
+  //update value of touched
+  this.wastouched = this.touched;
+
+  // if(this.touched=true){
+  //   this.drawRadioOn();
+  // }else if(this.touched=false){
+  //   this.drawRadioOff();
+  // }
+
+//draw the button
+  this.drawRadio_reg();
+}
+
+this.drawRadio_reg=function(){
 if(this.state==false){
   fill(255);
 }
-else{
+else {
   fill(0);
 }
 stroke(0);
 //draw the radio button
 ellipse(this.x,this.y,this.d,this.d,2);
+fill(255);
+stroke(255);
+textSize(12);
+text(this.label, this.x, this.y+(2*this.d/3));
+}
+}
+
+
+function RadioButton_green(ix,iy,id,ilabel){
+this.x = ix;
+this.y = iy;
+this.d = id;
+this.state = false;
+this.touched = false;
+this.wastouched = false;
+this.newtouch = false;
+this.label = ilabel;
+
+this.updateRadio=function(){
+  //detect whether the radio button is
+if (mouseIsPressed==true){
+  if ((sqrt(pow(mouseX-this.x,2)+pow(mouseY-this.y,2))<=this.d/2)){
+    this.touched=true;
+  }
+}
+  else{
+    this.touched=false;
+  }
+
+
+
+  if(this.touched==true & this.wastouched==false){
+    this.state = !this.state;
+  }
+  //update value of touched
+  this.wastouched = this.touched;
+
+  // if(this.touched=true){
+  //   this.drawRadioOn();
+  // }else if(this.touched=false){
+  //   this.drawRadioOff();
+  // }
+
+//draw the button
+  this.drawRadio_green();
+}
+
+this.drawRadio_green=function(){
+if(this.state==false){
+  image(green_off,this.x-30,this.y-37.5,this.d,this.d);
+}
+else {
+  image(green_on,this.x-30,this.y-37.5,this.d,this.d);
+}
+stroke(0);
+//draw the radio button
+//ellipse(this.x,this.y,this.d,this.d,2);
 fill(0);
 stroke(0);
 textSize(12);
-text(this.label, this.x, this.y+this.d);
+text(this.label, this.x, this.y+(5*this.d/9));
 }
 }
 
@@ -993,8 +1360,10 @@ function XSlider(ixorg, iyorg, ilen, imin, imax, islpos, ilabel) {
     this.min = imin;
     this.max = imax;
     this.label = ilabel;
-    this.sliderstroke = color(0, 0, 0);
-    this.sliderfill = color(0, 0, 0);
+    // this.sliderstroke = color(0, 0, 0);
+    // this.sliderfill = color(0, 0, 0);
+    this.sliderstroke = color(255);
+    this.sliderfill = color(255);
     this.was_pressed=false;
     this.held=false;
 
@@ -1008,7 +1377,8 @@ function XSlider(ixorg, iyorg, ilen, imin, imax, islpos, ilabel) {
     this.box_x = (this.slpos-this.min)*this.len/(this.max-this.min);
     rect(this.xorg+this.box_x, this.yorg, this.len*.2, this.len*.1);
     textSize(12);
-    text(this.label+": "+nf(this.slpos, 1, 2), this.xorg, this.yorg-this.len*.1);
+    //text(this.label+": "+nf(this.slpos, 1, 2), this.xorg, this.yorg-this.len*.1);
+    text(this.label+": "+nf(this.slpos, 1, 2), this.xorg+45, this.yorg-this.len*.1);
   }
 
   this.updateSlider = function() {
