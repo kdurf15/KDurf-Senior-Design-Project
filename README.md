@@ -34,7 +34,9 @@ To provide further elaboration on the table above and create a better understand
 For further clarification of the simulation, below indicates the button's appearances for the "engaged" and "not engaged" states.
 
 <p align="center">
+  ENGAGED
 <img width="100" alt="Safety Loop (re-colored for transparent github background)" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/131340d3d1f3de5c4e9387ae30fa439f3fdbb228/BRB%20Engaged.png">
+  **NOT ENGAGED**
 <img width="100" alt="Safety Loop (re-colored for transparent github background)" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/1d54052522dec26bc64806d8f330edb58eff1a17/BRB%20Not%20Engaged.png">
 </p>
 
