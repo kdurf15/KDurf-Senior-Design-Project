@@ -1,7 +1,7 @@
-// var touchDown = false;
-// var touchX =0;
-// var touchY=0;
-
+/*Kevin ("Durf") Durfee's Safety Loop/Shutdown Circuit Educational Simulation
+2023, Javascript. If issues or questions arise with this code, please contact
+me (Durf) at (609) 917-4527, kdurf15@comcast.net, or durfeekd@lafayette.edu
+(if it's still active)*/
 
 //test variable for precahrge_count instead of button placeholder design
 var precharge_state=false;
@@ -10,24 +10,12 @@ var precharge_count=0;
 //attempt implementing precharge slider
 var precharge_slider;
 
-//implementing seconds counter to make precharge 100% last 10seconds
-// var seconds = 0;
-// //var el = document.getElementById('seconds-counter');
-//
-// function incrementSeconds() {
-//     seconds += 1;
-//     //el.innerText = "You have been here for " + seconds + " seconds.";
-// }
-//
-// var cancel = setInterval(incrementSeconds, 1000);
 let [milliseconds,seconds] = [0,0];
-// let timerRef = document.querySelector('.timerDisplay');
 let int = null;
 
 
 var in1_button;
 var in2_button;
-//var run_button;
 
 var Y1light;
 var Y2light;
@@ -48,7 +36,6 @@ var Y6 = false;
 var Y7 = false;
 var Y8 = false;
 
-//lol
 //internal "coils"
 var V1=false;
 var V2=false;
@@ -78,66 +65,11 @@ var V25 = false;
 var V26 = false;
 var V27 = false;
 
-//timer 1 variables
-// var T0_DUR = 1000;
-// var T0_EN = false;
-// var T0_RST = false;
-// var T0 = false;
-
-
-//counter variables
-// var CT0_EN = false;
-// var CT0 = false;
-// var CTA0 = 0;
-// var CTO_RST = false;
-// var CT1_CNT = 5;
-// var CT0_CNT = 5;
-
-//timer variables
-// var T0 = false;
-// var T1_DUR = 1000;
-// var T0_EN = false;
-// var TA0 = 0;
-// var T1 = false;
-// var T1_EN = false;
-// var TA1 = 0;
-// var TO_RST = false;
-
-//counter variables
-// var CT0 = false;
-// var CT0_UP = false;
-// var CT0_DOWN = false;
-// var CTA0 = 0;
-// var CT0_RST = false;
-// var CT1 = false;
-// var CT1_UP = false;
-// var CT1_DOWN = false;
-// var CTA1 = 0;
-// var CT1_RST = false;
-
 var SP0 = true;
 
-//var canv_w = 1000;
-//var canv_h = 650;
 var canv_w = 1780;
 var canv_h = 858;
 
-// var inputCode;//this is the string that we will execute as code
-// var savedInputCode;
-
-//implement ready to drive sound
-// let track1;
-//
-// var tracks;
-// var numTracks;
-
-//let background = new img('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
-//let background = new PImage;
-//let background = new PImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
-//document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')";
-//const img = new Image();   // Create new img element
-//img.src = 'Senior Design Project Sim Cockpit Design - No Buttons.jpg'; // Set source path
-//let backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
 let backgrnd;
 let brb_off;
 let green_off;
@@ -146,36 +78,8 @@ let green_on;
 let rtds = new Audio('180077__iykqic0__sine-wave-2000-hz.wav');
 var sound_count = 0;
 
-//<div id="sketch-holder"><canvas id="defaultCanvas0" class="p5Canvas" width="1000" height="650" style="width: 1000px; height: 0px;"></canvas></div>
-//<canvas id="canvas" width="800" height="600" style="background: url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')">
-
-//<div id="sketch-holder"><canvas id="defaultCanvas0" class="p5Canvas" width="3000" height="1440" style="background: url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')"></canvas></div>
-
-
-// function soundSetup(){
-//   soundFormats('mp3','wav');
-//   console.log("loading sounds")
-//   errorSound = loadSound('assets/sounds/error.mp3');
-//   track1 = loadSound('assets/sounds/WIF/track1.mp3');
-//
-//   tracks = [track1];
-//   //numTracks = tracks.length;
-//   numTracks = 1;
-//   soundsLoaded = true;
-//   console.log("sounds loaded")
-//
-// }
-
-//const myCanvas = document.getElementById('my-canvas'); const myContext = myCanvas.getContext('2d');
-//const canvas = document.getElementById('canvas'); const context = canvas.getContext('2d'); const img = new Image();
-//img.src = 'Senior Design Project Sim Cockpit Design - No Buttons.jpg';
-//img.onload = () => {context.drawImage(img, 0, 0);};
 
 function setup(){
-  //background = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
-  //var canvas = document.body.style.Image = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')";
-  //var canvas = createCanvas
-  //C:\Users\Durf\Desktop\Durf Project\Senior Design Project Sim Cockpit Design - No Buttons.jpg
   backgrnd = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/main/Senior%20Design%20Project%20Sim%20Cockpit%20Design%20-%20Scaled2.jpg')
   backgrnd = loadImage('Senior Design Project Sim Cockpit Design - Scaled2.jpg')
   brb_off = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/main/BRB%20Not%20Engaged.png');
@@ -188,20 +92,9 @@ function setup(){
   green_on = loadImage('GreenEngaged.png')
 
   var canvas = createCanvas(canv_w,canv_h);
-  //var canvas = img;
-  //canvas.parent('sketch-holder');
   frameRate(30);
   stroke(0);
-  //fill(200,50,50);
-  //background(0);
-  //background(document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')");
   textAlign(CENTER);
-  //backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
-  //image(backgrnd, -backgrnd.width/4, -backgrnd.height/2, backgrnd.width / 2, backgrnd.height / 2);
-
-  // canvas.addEventListener("touchstart", touchDown, false);
-  // canvas.addEventListener("touchmove", touchXY, true);
-  // canvas.addEventListener("touchend", touchUp, false);
 
   var inox = 50.0/1200.0*canv_w;
   var inoy = 200.0/650.0*canv_h;
@@ -226,31 +119,12 @@ function setup(){
   in10_button = new RadioButton_reg(180,canv_h-60,buttondscaled,'BOTS');
 
   in4_button = new RadioButton_small(1325,235,new_buttondscaled,'BRB Cock');
-  //run_button = new MomentaryButton(75*canv_w/1200.0,550*canv_h/650.0,buttondscaled/2,'Update',18);
 
   //output lights
   var outox = canv_w-150*canv_w/1200.0;
   var outoy = 200*canv_h/650.0;
   var outsepx = 100*canv_w/1200.0;
   var outsepy = 100*canv_h/650.0;
-
-  // Y1light = new outputLight(550,canv_h-75,buttondscaled,color(128,0,0),color(255,0,0),'GLV OFF',12);
-  // Y2light = new outputLight(650,canv_h-75,buttondscaled,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
-  // Y3light = new outputLight(750,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'Precharge',12);
-  // Y4light = new outputLight(850,canv_h-75,buttondscaled,color(128,0,0),color(255,0,0),'TS ENRGZD, NRTD',12);
-  // Y5light = new outputLight(950,canv_h-75,buttondscaled,color(128,128,0),color(255,255,0),'TS ENRGZD, RTD',12);
-  // Y6light = new outputLight(1050,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'AMS FLT',12);
-  // Y7light = new outputLight(1150,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'IMD FLT',12);
-  // Y8light = new outputLight(1250,canv_h-75,buttondscaled,color(0,128,0),color(0,255,0),'BOTS',12);
-
-  // Y1light = new outputLight(750,400,25,color(128,0,0),color(255,0,0),'GLV OFF',12);
-  // Y2light = new outputLight(780,440,25,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
-  // Y3light = new outputLight(810,480,25,color(0,128,0),color(0,255,0),'Precharge',12);
-  // Y4light = new outputLight(955,400,25,color(128,0,0),color(255,0,0),'TS ENRGZD, NRTD',12);
-  // Y5light = new outputLight(935,440,25,color(128,128,0),color(255,255,0),'TS ENRGZD, RTD',12);
-  // Y6light = new outputLight(905,480,25,color(0,128,0),color(0,255,0),'AMS FLT',12);
-  // Y7light = new outputLight(885,520,25,color(0,128,0),color(0,255,0),'IMD FLT',12);
-  // Y8light = new outputLight(840,520,25,color(0,128,0),color(0,255,0),'BOTS',12);
 
   Y1light = new outputLight(750,400,25,color(0,128,0),color(0,255,0),'GLV OFF',12);
   Y2light = new outputLight(770,440,25,color(128,128,0),color(255,255,0),'TS OFF, GLV ON',12);
@@ -301,74 +175,14 @@ function setup(){
 
   //implement slider
   precharge_slider = new XSlider(canv_w/2-65, canv_h-10, 100, 0, 10, seconds, "precharge");
-  //precharge_slider = new XSlider(canv_w/2, 600, 100, 0, 100, millis(), "precharge");
-  //kp_slider= new XSlider(300, canv_h, 100, 0, 50, 0, "proportional gain");
-//
-//var timox = canv_w/2-250;
-//var timoy = 500*canv_h/650;
-//var timsepx = 200*canv_w/1200;
-
-  //set up the timers
-  //TA0box = new Timer(timox,timoy,150*canv_w/1200.0,75*canv_h/650.0,"T0",color(0,0,255),color(255,0,0));
-  //TA1box = new Timer(timox+timsepx,timoy,150*canv_w/1200.0,75*canv_h/650.0,"T1",color(0,0,255),color(255,0,0));
-
-//var ctox = canv_w/2+50;
-//var ctoy = 512.0*canv_h/650;
-//var ctsepx = 225*canv_w/1200;
-
-   //set up the counters
-//  CTA0box = new Counter(ctox,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT0",color(0,0,255),color(255,0,0));
-//  CTA1box = new Counter(ctox+ctsepx,ctoy,150*canv_w/1200.0,100*canv_h/650.0,"CT1",color(0,0,255),color(255,0,0));
- //run the BAP once to get into a state.
-  //runCallback();
-
 }
 
 function draw(){
-  //background(document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')");
-  //backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
-  //background(backgrnd);
-  //image(back)
-  //background(document.body.style.backgroundImage = "url('Senior Design Project Sim Cockpit Design - No Buttons.jpg')");
-  //background(loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg'));
-  //fill(0,10);
-  //noFill();
-  //stroke(0);
-  //backgrnd = loadImage('https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/d2ea4ad16ee0c7c86eb3ebd4b53dfd5999aeeaec/Senior%20Design%20Project%20Sim%20Cockpit%20Design%20-%20No%20Buttons.jpg');
-  //backgrnd = loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg');
-  //background(loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg'));
-  //image(backgrnd, -backgrnd.width/4, -backgrnd.height/2, backgrnd.width / 2, backgrnd.height / 2);
   image(backgrnd,0,0);
-  //tint(255, 0);
-
-  //test2
-  //rectMode(CORNERS);
-  //fill(220,10);
-  //rect((90*canv_w/1200.0)-(150*canv_w/2400.0),(canv_h/2-20)-(365*canv_h/1300),(90*canv_w/1200.0)+(150*canv_w/2400.0),canv_h-5);
-  // rectMode(CENTER);
-  // fill(220);
-  // rect(90*canv_w/1200.0,canv_h/2-20,150*canv_w/1200.0,500*canv_h/650.0);
-  //rectMode(CENTER);
-  //rect(canv_w-100*canv_w/1200.0,canv_h/2-20,175*canv_w/1200.0,365*canv_h/650.0);
-  //rect((canv_w-100*canv_w/1200.0)-(175*canv_w/1800.0),(canv_h/2-20)-(365*canv_h/1300),(canv_w), canv_h-100);
   fill(255);
   //greet the user
   textSize(32);
   text("Mock Safety Loop Simulator",canv_w/2,72.5);
-
-
-  //textSize(12);
-  //text("Type your Boolean Algebra code in javascript in the input box below the simulator. Hit update to see the effects of your Boolean Algebra program on the outputs/variables.",canv_w/2,75);
-  //text("You can use any of the momentary inputs (X1-X3), latching inputs (X4-X6), outputs (Yx) or intermediate variables (Vx) shown on the screen in your program.",canv_w/2,95);
-  //text("You can also assign timer inputs Tx_EN, and counter inputs CTx_UP/CTx_DOWN to use timers and counters in your program. ",canv_w/2,115);
-  //textSize(32);
-  //test2
-  // text("Inputs",90*canv_w/1200.,160);
-  // text("Outputs",(canv_w-100*canv_w/1200.0),160);
-  // text("Internal Variables",canv_w/2,160);
-
-  //textSize(18);
-  //text("Your Code Goes Below Here. Use only variable names you see in the simulator",canv_w/2,640);
 
   //process inputs
   in1_button.updateRadio();
@@ -381,41 +195,6 @@ function draw(){
   in8_button.updateRadio();
   in9_button.updateRadio();
   in10_button.updateRadio();
-
-
-  //run_button.updateButton();
-
-  //hook timers up to global boolean vars
-  // TA1box.en = T1_EN;
-  // TA0box.en = T0_EN;
-  // TA0box.duration = T0_DUR;
-  // TA1box.duration = T1_DUR;
-  // TA0box.update();
-  // TA1box.update();
-  // TA0 = TA0box.elapsed;
-  // T0 = TA0box.state;
-  //
-  // TA1 = TA1box.elapsed;
-  // T1 = TA1box.state;
-  //
-  //
-  // //hook timers up to global boolean vars
-  // CTA0box.down = CT0_DOWN;
-  // CTA0box.up = CT0_UP;
-  // CTA1box.down = CT1_DOWN;
-  // CTA1box.up = CT1_UP;
-  // CTA0box.RST = CT0_RST;
-  // CTA1box.RST = CT1_RST;
-  // CTA1box.thresh = CT1_CNT;
-  // CTA0box.thresh = CT0_CNT;
-  // CTA0box.update();
-  // CTA1box.update();
-  // CTA0 = CTA0box.count;
-  // CTA1 = CTA1box.count;
-  // CT0 = CTA0box.state;
-  // CT1 = CTA1box.state;
-
-
 
   //update boolean code from text area with callback
   //console.log(run_button.newtouch);
@@ -431,21 +210,6 @@ function draw(){
   X8 = in8_button.state;
   X9 = in9_button.state;
   X10 = in10_button.state;
-
-  //X6 = T0_EN;
-
-  // V9 = V1&&X1&&X2&&X3;
-  // V21 = V1&&!V9;
-  // V10 = V2&&V9&&X4&&X5;
-  // V11 = V3&&T0&&V10;
-  // V12 = V4&&X7;
-  // V13 = V5&&!X7;
-  // V14 = (V3||V4||V5)&&(!X4||!X5);
-  // V15 = (V3||V4||V5)&&X8;
-  // V16 = (V3||V4||V5)&&X9;
-  // V17 = (V3||V4||V5)&&X10;
-  // V18 = V8&&(!X10&&!X4&&!X5);
-  // V19 = V7&&(!X9&&!X4&&!X5);
 
   /*maybe consider tweaking to add previous inputs rather than states (X1,2,3 in V10 instead of V9)
   so that I can possibly rework code to only be in one output state at once*/
@@ -466,26 +230,6 @@ function draw(){
   V18 = V8&&(!X10&&!X4&&!X5);
   V19 = V7&&(!X9&&!X4&&!X5);
 
-  // if(V10){
-  //   int = setInterval(prechargeTimer,10);
-  // }
-  // if(!V10){
-  //   //int = null;
-  //   setInterval(prechargeTimer,-10);
-  //   clearInterval(int);
-  //   clearInterval(prechargeTimer);
-  //   [milliseconds,seconds] = [0,0];
-  //   //timerRef.innerHTML = '00 : 00 : 00 : 000 ';
-  // }
-
-  // if(int!==null){
-  //       clearInterval(int);
-  //   }
-  //   int = setInterval(prechargeTimer,10);
-  // if(!V10){
-  //       clearInterval(int);
-  //   }
-  //   int = setInterval(prechargeTimer,10);
   if(V10){
     clearInterval(int);
     int=setInterval(prechargeTimer,10);
@@ -499,40 +243,6 @@ function draw(){
   if(seconds>=9){
     precharge_state=true;
   }
-
-
-  // if(V10){
-  //   for(var i=0; i<=100;i++){
-  //     precharge_count++;
-  //     if(precharge_count>=90){
-  //       //X6=true;
-  //       precharge_state=true;
-  //     }
-  //   }
-  // }
-  // if(!V10){
-  //   precharge_count = 0;
-  // }
-
-  // if(V10){
-  //   let precharge_time = millis();
-  //   if(precharge_time%1000 == 0){
-  //     if(precharge_time != 0){
-  //       precharge_count = precharge_count+1;
-  //     }
-  //   }
-
-
-//   var i = 1;
-//   var interval = setInterval( increment, 1000);
-//
-// function increment(){
-//     i = i % 360 + 1;
-// }
-// if(int!==null){
-//         clearInterval(int);
-//     }
-//     int = setInterval(displayTimer,10);
 
   //inital condition to have Y1 on when GLVMS if off, make sure breaks when GLVMS is on
   V22 = !X1;
@@ -562,39 +272,14 @@ function draw(){
       rtds.play();
       sound_count++;
     }
-    //rtds.play();
-    //rtds.stop();
   }
   if(!V12){
     sound_count=0;
-  }//convert this to an else or else if, to clean up the code
+  }
 
   //slider implementation attempt //quick location: slider
   precharge_slider.slpos = seconds;
   precharge_slider.drawSlider();
-  //precharge_count = precharge_slider.slpos;
-
-  // //temporary precharge slider line solution (fake solution to fill out line unitil figure out how to fix)
-  // line(canv_w/2-10,600,canv_w/2+20,600);
-  // //line(this.xorg, this.yorg, this.xorg+this.len, this.yorg);
-  // //precharge_slider = new XSlider(canv_w/2, 600, 100, 0, 100, 0, "precharge");
-
-
-  /*have to/want to edit it so that I am in only one state at a time (with outputs and such)
-  ask how to do this, because it might be conflicting with how the code builds off previous states
-  and inputs. I suppose I can manually add each of the inputs rather than previous state*/
-
-  // if(run_button.newtouch){
-  //   runCallback();
-  // }
-  // try{
-  //   eval(inputCode);
-  // }
-  // catch(e){
-  //   inputCode = savedInputCode;
-  //   eval(inputCode);
-  //   alert(e+".  Fix Error and Update To Continue!");
-  // }
 
   //boolean algebra block 4
   Y1light.state = Y1;
@@ -648,101 +333,13 @@ function draw(){
   Y7light.drawLight();
   Y8light.drawLight();
 
-  // V1light.drawLight();
-  // V2light.drawLight();
-  // V3light.drawLight();
-  // V4light.drawLight();
-  // V5light.drawLight();
-  // V6light.drawLight();
-  // V7light.drawLight();
-  // V8light.drawLight();
-  // V9light.drawLight();
-  // V10light.drawLight();
-  // V11light.drawLight();
-  // V12light.drawLight();
-  // V13light.drawLight();
-  // V14light.drawLight();
-  // V15light.drawLight();
-  // V16light.drawLight();
-  // V17light.drawLight();
-  // V18light.drawLight();
-  // V19light.drawLight();
-  // V20light.drawLight();
-  // V21light.drawLight();
-  // V22light.drawLight();
-  // V23light.drawLight();
-  // V24light.drawLight();
-  // V25light.drawLight();
-  // V26light.drawLight();
-  // V27light.drawLight();
-
-  //slider implementation attempt
-  //precharge_slider.slpos = precharge_count;
-  //precharge_slider.drawSlider();
-  //precharge_count = precharge_slider.slpos;
-
-  // kp_slider.slpos = kp;
-  // kp_slider.drawSlider();
-  // kp = kp_slider.slpos;
-
-
-
   console.log(SP0);
   //kill SP0 if it's true
   if(SP0==true){
     SP0=false;
   }
-  //image(backgrnd, -backgrnd.width/4, -backgrnd.height/2, backgrnd.width / 2, backgrnd.height / 2);
-  //background(loadImage('Senior Design Project Sim Cockpit Design - No Buttons.jpg'));
 }
 
-// function runCallback(){
-//   console.log("got into run callback");
-//   var text = document.getElementById("inputcode");
-//   console.log(text.value);
-//   savedInputCode = inputCode;
-//   inputCode = text.value;
-//   CTA0box.count=0;
-//   CTA1box.count=0;
-//   CTA0box.update();
-//   CTA1box.update();
-//
-//   X1=false;
-//   X2=false;
-//   X3=false;
-//   V1=false;
-//   V2=false;
-//   V3=false;
-//   V4=false;
-//   V5=false;
-//   V6=false;
-//   V7=false;
-//   V8=false;
-//   V9=false;
-//   V10 = false;
-//   V11= false;
-//   V12 = false;
-//   V13=false;
-//   V13=false;
-//   V15=false;
-//   V16=false;
-//   V17=false;
-//   V18=false;
-//   V19=false;
-//   V20=false;
-//   V21=false;
-//   V22=false;
-//   V23=false;
-//   V24=false;
-//   V25=false;
-//   V26=false;
-//   V27=false;
-//   Y1=false;
-//   Y2=false;
-//   Y3=false;
-//   SP0=true;
-//
-// }
 
 function prechargeTimer(){
   if(seconds<10){
@@ -758,13 +355,6 @@ function prechargeTimer(){
     }
   }
 }
-//   milliseconds+=10;
-//
-//   if(milliseconds==1000){
-//     milliseconds=0;
-//     seconds++;
-//   }
-// }
 
 function outputLight(ix,iy,id,icolorFalse,icolorTrue,ilabel,itextSize){
   this.x =ix;
@@ -1052,60 +642,16 @@ if (mouseIsPressed==true){
     this.touched=false;
   }
 
-
-
   if(this.touched==true & this.wastouched==false){
     this.state = !this.state;
   }
   //update value of touched
   this.wastouched = this.touched;
 
-  // if(this.touched=true){
-  //   this.drawRadioOn();
-  // }else if(this.touched=false){
-  //   this.drawRadioOff();
-  // }
 
 //draw the button
   this.drawRadio_small();
 }
-
-// this.drawRadioOff=function(){
-// if(this.state==false){
-//   fill(255);
-// }
-// else{
-//   fill(0);
-// }
-// stroke(0);
-// //draw the radio button
-// //ellipse(this.x,this.y,this.d,this.d,2);
-// image(brb_off,this.x,this.y,this.d,this.d);
-// fill(0);
-// stroke(0);
-// textSize(12);
-// text(this.label, this.x, this.y+this.d);
-// }
-//
-//
-// this.drawRadioOn=function(){
-// if(this.state==false){
-//   fill(255);
-// }
-// else{
-//   fill(0);
-// }
-// stroke(0);
-// //draw the radio button
-// //ellipse(this.x,this.y,this.d,this.d,2);
-// image(brb_on,this.x,this.y,this.d,this.d);
-// fill(0);
-// stroke(0);
-// textSize(12);
-// text(this.label, this.x, this.y+this.d);
-// }
-
-//50.0*canv_w/1200
 
 
 this.drawRadio_small=function(){
@@ -1210,12 +756,6 @@ if (mouseIsPressed==true){
   //update value of touched
   this.wastouched = this.touched;
 
-  // if(this.touched=true){
-  //   this.drawRadioOn();
-  // }else if(this.touched=false){
-  //   this.drawRadioOff();
-  // }
-
 //draw the button
   this.drawRadio_greenBig();
 }
@@ -1236,7 +776,6 @@ textSize(12);
 text(this.label, this.x, this.y+(2*this.d/3));
 }
 }
-
 
 
 function RadioButton_reg(ix,iy,id,ilabel){
@@ -1268,11 +807,6 @@ if (mouseIsPressed==true){
   //update value of touched
   this.wastouched = this.touched;
 
-  // if(this.touched=true){
-  //   this.drawRadioOn();
-  // }else if(this.touched=false){
-  //   this.drawRadioOff();
-  // }
 
 //draw the button
   this.drawRadio_reg();
@@ -1324,12 +858,6 @@ if (mouseIsPressed==true){
   }
   //update value of touched
   this.wastouched = this.touched;
-
-  // if(this.touched=true){
-  //   this.drawRadioOn();
-  // }else if(this.touched=false){
-  //   this.drawRadioOff();
-  // }
 
 //draw the button
   this.drawRadio_green();
