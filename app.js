@@ -280,6 +280,10 @@ function draw(){
   //slider implementation attempt //quick location: slider
   precharge_slider.slpos = seconds;
   precharge_slider.drawSlider();
+  if(X8||X9||X10){
+    seconds=0;
+    milliseconds=0;
+  }
 
   //boolean algebra block 4
   Y1light.state = Y1;
