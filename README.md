@@ -67,9 +67,13 @@ The first step when creating this PCB was to design the pre-charge circuit and c
 
 <p align="center">
   Target of ~99.3% Charge in 5 time constants (3 seconds)
+  
   5𝜏 = 3 seconds   →   𝜏 = 0.6 seconds
+  
   𝜏 = RC
+  
   Motor Inverter DC Bus Capacitance, C = 300 μF
+  
   R = 𝜏/C = (0.6 seconds)/(300 μF) = 2kΩ
   
   Max current target, based on full ~300V
