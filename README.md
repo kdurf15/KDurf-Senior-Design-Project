@@ -1,6 +1,5 @@
 ﻿# KDurf-Senior-Design-Project
-**Digital Simulation**
-
+**DIGITAL SIMULATION**
 
 For my (Kevin Durfee's) Senior Design project, I have created and implemented an educational simulation of the Safety Loop system for the FSAE EV cars, based on the 2023 Formula Hybrid SAE + Electric ruleset. 
 
@@ -60,7 +59,8 @@ GREEN BUTTONS (NON-BRB)
 
 For ease of access, the educational Safety Loop simulation can be found here: https://kdurf15.github.io/KDurf-Senior-Design-Project/
 
-**Hardware Implementation**
+**HARDWARE IMPLEMENTATION**
+
 In addition to the digital/virtual simulation, I have created a physical small-scale version of the Shutdown Circuit. All features and hardware that would be on the actual Lafayette Motorsports FSAE EV car are present on the PCB test rig, just scaled down. The only exception to this would be the faults (BOTS, IMD, and AMS), which are represented via latching switches (similarly to the digital/virtual simulation). The PCB Safety Loop/Shutdown Circuit tool uses 3V and 9V batteries, on separate paths, to mimic the grounded low voltage (GLV) and tractive system (TS) of the car.
 
 The first step when creating this PCB was to design the pre-charge circuit and circuit diagram. As a reminder, the pre-charge circuit works to prevent a sudden spike in current that would result in welding the AIRs shut (live). The time duration for the pre-charge relay, determined to be approximately 3 seconds (5 time constants), are shown below.
