@@ -1,4 +1,5 @@
 ﻿# KDurf-Senior-Design-Project
+**Digital Simulation**
 For my (Kevin Durfee's) Senior Design project, I have created and implemented an educational simulation of the Safety Loop system for the FSAE EV cars, based on the 2023 Formula Hybrid SAE + Electric ruleset. 
 
 Shown below is the FSM Diagram for the Safety Loop system, with the omission of lights/sounds. Along with it is the state transition table for the respective FSM. 
@@ -57,4 +58,41 @@ GREEN BUTTONS (NON-BRB)
 
 For ease of access, the educational Safety Loop simulation can be found here: https://kdurf15.github.io/KDurf-Senior-Design-Project/
 
-If any issues or questions arise with the code/simulation/project, please feel free to contact me (Kevin/Durf) at (609) 917-4527, kdurf15@comcast.net, or durfeekd@lafayette.edu (if my Lafayette email address is still active).
+**Hardware Implementation**
+In addition to the digital/virtual simulation, I have created a physical small-scale version of the Shutdown Circuit. All features and hardware that would be on the actual Lafayette Motorsports FSAE EV car are present on the PCB test rig, just scaled down. The only exception to this would be the faults (BOTS, IMD, and AMS), which are represented via latching switches (similarly to the digital/virtual simulation). The PCB Safety Loop/Shutdown Circuit tool uses 3V and 9V batteries, on separate paths, to mimic the grounded low voltage (GLV) and tractive system (TS) of the car.
+
+The first step when creating this PCB was to design the pre-charge circuit and circuit diagram. As a reminder, the pre-charge circuit works to prevent a sudden spike in current that would result in welding the AIRs shut (live). The time duration for the pre-charge relay, determined to be approximately 3 seconds (5 time constants), are shown below.
+
+<p align="center">
+**Target of ~99.3% Charge in 5 time constants (3 seconds)**
+5𝜏 = 3 seconds   →   𝜏 = 0.6 seconds
+𝜏 = RC
+Motor Inverter DC Bus Capacitance, C = 300 μF
+R = 𝜏/C = (0.6 seconds)/(300 μF) = 2kΩ
+
+**Max current target, based on full ~300V**
+(300V)/(2 kΩ) = 0.15 A
+
+**Power Dissipated through Resistor**
+(0.15^2 A)*(2 kΩ) = 45 W Max
+</p>
+
+The pre-charge time delay, both for the small-scale PCB safety loop implementation and the physical implementation in the full-scale car, will use a 555 timer. The safety loop circuit, including the 555 timer, was initially designed in falstad. The falstad is shown below and can be found here: https://tinyurl.com/ctu5a7be
+
+<p align="center">
+PUT FALSTAD IMAGINE IN HERE
+</p>
+
+This was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below and can be found in under the "PCB Design" folder.
+
+<p align="center">
+INSERT FUSION 360 PCB DESIGN PHOTO AND ADD FILES TO FOLDER ON GITHUB
+</p>
+
+For the small-scale Safety Loop/Shutdown Circuit PCB tool to appear more similar to the car's layout, buttons and switches were respectively mounted on 3D-printed "side panels" or "cockpit panels," similar to those on the car. Attachments for the rotary switches were also printed to mimic the red GLV and TS master switches. All .stl files for the 3D-printed designs can be found in the "3D Printed Models" folder. The completed PCB Safety Loop/Shutdown Circuit educational tool is shown below.
+
+<p align="center">
+INSERT LABELED (OR UNLABELED) PHOTO OF THE COMPLETED PCB TOOL
+</p>
+
+If any issues or questions arise with the code/simulation/hardware/project, please feel free to contact me (Kevin/Durf) at (609) 917-4527, kdurf15@comcast.net, or durfeekd@lafayette.edu (if my Lafayette email address is still active).
