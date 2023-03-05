@@ -1,5 +1,7 @@
 ﻿# KDurf-Senior-Design-Project
+<font size ="15">
 **Digital Simulation**
+</font>
 
 For my (Kevin Durfee's) Senior Design project, I have created and implemented an educational simulation of the Safety Loop system for the FSAE EV cars, based on the 2023 Formula Hybrid SAE + Electric ruleset. 
 
