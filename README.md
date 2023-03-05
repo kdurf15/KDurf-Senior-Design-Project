@@ -98,6 +98,9 @@ The first step when creating this PCB was to design the pre-charge circuit and c
 
 <p align="center">
   Power Dissipated through Resistor
+  
+  (0.15^2 A)*(2 kΩ) = 45 W Max
+  
 </p>
 
 <p align="center">
@@ -107,7 +110,7 @@ The first step when creating this PCB was to design the pre-charge circuit and c
 The pre-charge time delay, both for the small-scale PCB safety loop implementation and the physical implementation in the full-scale car, will use a 555 timer. The safety loop circuit, including the 555 timer, was initially designed in falstad. The falstad is shown below and can be found here: https://tinyurl.com/ctu5a7be
 
 <p align="center">
-PUT FALSTAD IMAGINE IN HERE
+<img width="586" alt="falstad screenshot" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/72ebd165b6dff8e0f7a78f02cb3391a4ea31a5c4/falstad%20screenshot.png">
 </p>
 
 This was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below and can be found in under the "PCB Design" folder.
