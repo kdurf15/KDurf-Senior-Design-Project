@@ -83,6 +83,7 @@ The first step when creating this PCB was to design the pre-charge circuit and c
 
 <p align="center">
   R = 𝜏/C = (0.6 seconds)/(300 μF) = 2kΩ
+  
 </p>
 
 
@@ -92,15 +93,13 @@ The first step when creating this PCB was to design the pre-charge circuit and c
 </p>
 <p align="center">
   (300V)/(2 kΩ) = 0.15 A
+  
 </p>
 
 
 
 <p align="center">
   Power Dissipated through Resistor
-  
-  (0.15^2 A)*(2 kΩ) = 45 W Max
-  
 </p>
 
 <p align="center">
