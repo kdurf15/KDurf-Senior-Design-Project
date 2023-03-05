@@ -85,12 +85,16 @@ The first step when creating this PCB was to design the pre-charge circuit and c
   R = 𝜏/C = (0.6 seconds)/(300 μF) = 2kΩ
 </p>
 
+
+
 <p align="center">
   Max current target, based on full ~300V
 </p>
 <p align="center">
   (300V)/(2 kΩ) = 0.15 A
 </p>
+
+
 
 <p align="center">
   Power Dissipated through Resistor
