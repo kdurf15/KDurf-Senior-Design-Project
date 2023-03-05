@@ -66,17 +66,17 @@ In addition to the digital/virtual simulation, I have created a physical small-s
 The first step when creating this PCB was to design the pre-charge circuit and circuit diagram. As a reminder, the pre-charge circuit works to prevent a sudden spike in current that would result in welding the AIRs shut (live). The time duration for the pre-charge relay, determined to be approximately 3 seconds (5 time constants), are shown below.
 
 <p align="center">
-**Target of ~99.3% Charge in 5 time constants (3 seconds)**
-5𝜏 = 3 seconds   →   𝜏 = 0.6 seconds
-𝜏 = RC
-Motor Inverter DC Bus Capacitance, C = 300 μF
-R = 𝜏/C = (0.6 seconds)/(300 μF) = 2kΩ
-
-**Max current target, based on full ~300V**
-(300V)/(2 kΩ) = 0.15 A
-
-**Power Dissipated through Resistor**
-(0.15^2 A)*(2 kΩ) = 45 W Max
+  Target of ~99.3% Charge in 5 time constants (3 seconds)
+  5𝜏 = 3 seconds   →   𝜏 = 0.6 seconds
+  𝜏 = RC
+  Motor Inverter DC Bus Capacitance, C = 300 μF
+  R = 𝜏/C = (0.6 seconds)/(300 μF) = 2kΩ
+  
+  Max current target, based on full ~300V
+  (300V)/(2 kΩ) = 0.15 A
+  
+  Power Dissipated through Resistor
+  (0.15^2 A)*(2 kΩ) = 45 W Max
 </p>
 
 The pre-charge time delay, both for the small-scale PCB safety loop implementation and the physical implementation in the full-scale car, will use a 555 timer. The safety loop circuit, including the 555 timer, was initially designed in falstad. The falstad is shown below and can be found here: https://tinyurl.com/ctu5a7be
