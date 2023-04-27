@@ -127,7 +127,7 @@ Photos of the 3D model of the above PCB are shown below.
 </p>
 
 <p align="center">
-  <img width="1440" alt="Durfee Safety Loop 3D PCB Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/e07205d62491980e664e26d1c7cfeda07ddeb668/Durfee%20Safety%20Loop%203D%20PCB%20Photo.png">
+  <img width="1440" alt="Durfee Safety Loop 3D PCB Photo 2" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/2ea67b3be7a0561681d4466bf4ea05114f643999/Durfee%20Safety%20Loop%203D%20PCB%20Photo%202.png">
 </p>
 
 
