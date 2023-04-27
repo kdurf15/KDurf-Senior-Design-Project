@@ -112,7 +112,21 @@ The pre-charge time delay, both for the small-scale PCB safety loop implementati
 <img width="586" alt="falstad screenshot" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/72ebd165b6dff8e0f7a78f02cb3391a4ea31a5c4/falstad%20screenshot.png">
 </p>
 
-This was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below. Fusion 360 and Eagle schematic files can be found in the compressed folder, "Shutdown Circuit PCB Schematic Files," which is permalinked here (https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/f66a77cbe09608431833e2ea92ca653daefc6d79/Shutdown%20Circuit%20PCB%20Schematic%20Files.zip).
+As required by the 2023 Formula SAE Hybrid + Electric rule set, the Isolation Monitoring Device (IMD) and AMS require latching circuits for the faults. Two suggested designs, for either fault low or high, are provided in the Appendix G of the rules and is shown below.
+
+<p align="center">
+  INSERT PHOTO OF APPENDIX G LATCHING CIRCUIT SUGGESTIONS
+</p>
+
+This design was considered and the corresponding design was completed in falstad. The "fault" was considered/modeled as a latching switch. The falstad design is shown below and can be found here: https://tinyurl.com/23wacp5r
+
+<p align="center">
+  INSERT PHOTO OF LATCHING FALSTAD
+</p>
+
+TALK ABOUT FALSTAD LATCHING CIRCUIT DIFFERENCES ON PCB COMPARED TO DESIGN (ONLY USING THE LATCHING/RESET PORTION), ALSO SHOW PHOTO OF PCB LATCHING
+
+This, along with the entirity of the Safety Loop/Shutdown Circuit system, was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below. Fusion 360 and Eagle schematic files can be found in the compressed folder, "Shutdown Circuit PCB Schematic Files," which is permalinked here: https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/f66a77cbe09608431833e2ea92ca653daefc6d79/Shutdown%20Circuit%20PCB%20Schematic%20Files.zip
 
 <p align="center">
   <img width="706" alt="PCB Layout Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/5304f1a94ec4681c94315d3332f6c63b97bb314e/PCB%20Layout%20Photo.png">
