@@ -68,8 +68,12 @@ A photo of the educational Safety Loop simulation is shown below. For ease of ac
 <img width="2342" alt="Sim Placeholder Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/df511ecdc881d7736359bc2160e701e7995e1b74/Sim%20Placeholder%20Image.png">
 
 <a href="https://kdurf15.github.io/KDurf-Senior-Design-Project/"><img src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/df511ecdc881d7736359bc2160e701e7995e1b74/Sim%20Placeholder%20Image.png" alt="Sim Placeholder Photo" style="width:2342px;height:1334px;"></a>
-      
+    
+<a href="https://kdurf15.github.io/KDurf-Senior-Design-Project/"><img src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/df511ecdc881d7736359bc2160e701e7995e1b74/Sim%20Placeholder%20Image.png" alt="Sim Placeholder Photo" img width="2342"></a>
+  
+ADD NEW PHOTO OF SIM FROM DESKTOP OR USE ONE FROM POSTER
 </p>
+
 
 
 
