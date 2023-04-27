@@ -120,6 +120,17 @@ This was then implemented onto a PCB with silk screens to illustrate the specifi
   INSERT FUSION 360 PCB DESIGN PHOTO AND ADD FILES TO FOLDER ON GITHUB
 </p>
 
+Photos of the 3D model of the above PCB are shown below.
+
+<p align="center">
+  <img width="1440" alt="Durfee Safety Loop 3D PCB Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/e07205d62491980e664e26d1c7cfeda07ddeb668/Durfee%20Safety%20Loop%203D%20PCB%20Photo.png">
+</p>
+
+<p align="center">
+  <img width="1440" alt="Durfee Safety Loop 3D PCB Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/e07205d62491980e664e26d1c7cfeda07ddeb668/Durfee%20Safety%20Loop%203D%20PCB%20Photo.png">
+</p>
+
+
 For the small-scale Safety Loop/Shutdown Circuit PCB tool to appear more similar to the car's layout, buttons and switches were respectively mounted on 3D-printed "side panels" or "cockpit panels," similar to those on the car. Attachments for the rotary switches were also printed to mimic the red GLV and TS master switches. All .stl files for the 3D-printed designs can be found in the "3D Printed Models" folder. The completed PCB Safety Loop/Shutdown Circuit educational tool is shown below.
 
 <p align="center">
