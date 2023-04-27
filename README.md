@@ -59,6 +59,21 @@ GREEN BUTTONS (NON-BRB)
 
 For ease of access, the educational Safety Loop simulation can be found here: https://kdurf15.github.io/KDurf-Senior-Design-Project/
 
+For ease of access, the screenshot of the Safety Loop simulation 
+
+A photo of the educational Safety Loop simulation is shown below. For ease of access, the below photo serves as a hyperlink to the simulation itself.
+
+<p align="center">
+
+<img width="2342" alt="Sim Placeholder Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/df511ecdc881d7736359bc2160e701e7995e1b74/Sim%20Placeholder%20Image.png">
+
+<h2>Image as a Link</h2>
+      <a href="https://www.tutorialspoint.com"><img src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/df511ecdc881d7736359bc2160e701e7995e1b74/Sim%20Placeholder%20Image.png" alt="Sim Placeholder Photo" style="width:2342px;height:1334px;"></a>
+      
+</p>
+
+
+
 **HARDWARE IMPLEMENTATION**
 
 In addition to the digital/virtual simulation, I have created a physical small-scale version of the Shutdown Circuit. All features and hardware that would be on the actual Lafayette Motorsports FSAE EV car are present on the PCB test rig, just scaled down. The only exception to this would be the faults (BOTS, IMD, and AMS), which are represented via latching switches (similarly to the digital/virtual simulation). The PCB Safety Loop/Shutdown Circuit tool uses 3V and 9V batteries, on separate paths, to mimic the grounded low voltage (GLV) and tractive system (TS) of the car.
@@ -112,7 +127,7 @@ The pre-charge time delay, both for the small-scale PCB safety loop implementati
 <img width="586" alt="falstad screenshot" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/72ebd165b6dff8e0f7a78f02cb3391a4ea31a5c4/falstad%20screenshot.png">
 </p>
 
-As required by the 2023 Formula SAE Hybrid + Electric rule set, the Isolation Monitoring Device (IMD) and AMS require latching circuits for the faults. Two suggested designs, for either fault low or high, are provided in the Appendix G of the rules and is shown below.
+As required by the 2023 Formula SAE Hybrid + Electric rule set, the Isolation Monitoring Device (IMD) and Accumulator Management System (AMS) require latching circuits for the faults. Two suggested designs, for either fault low or high, are provided in the Appendix G of the rules and is shown below.
 
 <p align="center">
   INSERT PHOTO OF APPENDIX G LATCHING CIRCUIT SUGGESTIONS
