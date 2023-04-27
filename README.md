@@ -65,7 +65,12 @@ A photo of the educational Safety Loop simulation is shown below. For ease of ac
 
 <p align="center">
 
-<a href="https://kdurf15.github.io/KDurf-Senior-Design-Project/"><img src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/d4cb8599bf7250e0ddacb138cbd1f26489f058e9/Labeled%20Sim%20Photo.png" alt="Sim Placeholder Photo" img width="2734"></a>
+  <a href="https://kdurf15.github.io/KDurf-Senior-Design-Project/"><img src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/d4cb8599bf7250e0ddacb138cbd1f26489f058e9/Labeled%20Sim%20Photo.png" alt="Sim Placeholder Photo" img width="2734"></a>
+  
+  <a href="https://kdurf15.github.io/KDurf-Senior-Design-Project/"><img src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/d4cb8599bf7250e0ddacb138cbd1f26489f058e9/Labeled%20Sim%20Photo.png" alt="Sim Placeholder Photo" img width="2734" onclick="window.open('anotherpage.html','https://kdurf15.github.io/KDurf-Senior-Design-Project/');" />></a>
+  
+  <img src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/d4cb8599bf7250e0ddacb138cbd1f26489f058e9/Labeled%20Sim%20Photo.png" alt="Labeled Sim Photo" onclick="window.open('anotherpage.html','https://kdurf15.github.io/KDurf-Senior-Design-Project/');"/>
+       
   
 CONSIDER SWAPPED FOR NON-LABELED PHOTO FROM DESKTOP
 </p>
