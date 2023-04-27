@@ -115,8 +115,9 @@ The pre-charge time delay, both for the small-scale PCB safety loop implementati
 This was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below and can be found in under the "PCB Design" folder.
 
 <p align="center">
-<img width="706" alt="PCB Layout Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/5304f1a94ec4681c94315d3332f6c63b97bb314e/PCB%20Layout%20Photo.png">
-INSERT FUSION 360 PCB DESIGN PHOTO AND ADD FILES TO FOLDER ON GITHUB
+  <img width="706" alt="PCB Layout Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/5304f1a94ec4681c94315d3332f6c63b97bb314e/PCB%20Layout%20Photo.png">
+  
+  INSERT FUSION 360 PCB DESIGN PHOTO AND ADD FILES TO FOLDER ON GITHUB
 </p>
 
 For the small-scale Safety Loop/Shutdown Circuit PCB tool to appear more similar to the car's layout, buttons and switches were respectively mounted on 3D-printed "side panels" or "cockpit panels," similar to those on the car. Attachments for the rotary switches were also printed to mimic the red GLV and TS master switches. All .stl files for the 3D-printed designs can be found in the "3D Printed Models" folder. The completed PCB Safety Loop/Shutdown Circuit educational tool is shown below.
