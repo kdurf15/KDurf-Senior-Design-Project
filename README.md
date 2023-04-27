@@ -112,7 +112,7 @@ The pre-charge time delay, both for the small-scale PCB safety loop implementati
 <img width="586" alt="falstad screenshot" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/72ebd165b6dff8e0f7a78f02cb3391a4ea31a5c4/falstad%20screenshot.png">
 </p>
 
-This was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below and can be found in under the "PCB Design" folder.
+This was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below. Fusion 360 and Eagle schematic files can be found in the compressed folder, "Shutdown Circuit PCB Schematic Files," which is permalinked here (https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/f66a77cbe09608431833e2ea92ca653daefc6d79/Shutdown%20Circuit%20PCB%20Schematic%20Files.zip).
 
 <p align="center">
   <img width="706" alt="PCB Layout Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/5304f1a94ec4681c94315d3332f6c63b97bb314e/PCB%20Layout%20Photo.png">
@@ -135,6 +135,8 @@ For the small-scale Safety Loop/Shutdown Circuit PCB tool to appear more similar
 
 <p align="center">
 INSERT LABELED (OR UNLABELED) PHOTO OF THE COMPLETED PCB TOOL
+
+UPDATE THIS PHOTO WITH THE MORE UPDATED/COMPLETE CAD FILE W/ MOTOR MOUNT
 </p>
 
 If any issues or questions arise with the code/simulation/hardware/project, please feel free to contact me (Kevin/Durf) at (609) 917-4527, kdurf15@comcast.net, or durfeekd@lafayette.edu (if my Lafayette email address is still active).
