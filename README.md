@@ -153,4 +153,4 @@ INSERT LABELED (OR UNLABELED) PHOTO OF THE COMPLETED PCB TOOL
 UPDATE THIS PHOTO WITH THE MORE UPDATED/COMPLETE CAD FILE W/ MOTOR MOUNT
 </p>
 
-If any issues or questions arise with the code/simulation/hardware/project, please feel free to contact me (Kevin/Durf) at (609) 917-4527, kdurf15@comcast.net, or durfeekd@lafayette.edu (if my Lafayette email address is still active).
+If any issues or questions arise with the code/simulation/hardware/project, please feel free to contact me (Kevin/Durf) at kdurf15@comcast.net or durfeekd@lafayette.edu (if my Lafayette email address is still active).
