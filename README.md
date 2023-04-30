@@ -149,7 +149,7 @@ Below is a photo of the PCB Schematic, both normal and trimmed nets
 </p>
 
 <p align="center">
-  <img width="706" alt="PCB Schematic" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/20650611ab7f731d7821bba60f4589752a2b1333/PCB%20Schematic.png">
+  <img width="706" alt="PCB Schematic Trimmed" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/191e0d629f51c0c2f05d1741beeff35ed7a91f51/PCB%20Schematic%20Trimmed.png">
 </p>
 
 Below shows the PCB silkscreen and physical board layout, based on the previously showed schematic
