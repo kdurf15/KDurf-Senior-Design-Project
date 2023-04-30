@@ -142,10 +142,21 @@ TALK ABOUT FALSTAD LATCHING CIRCUIT DIFFERENCES ON PCB COMPARED TO DESIGN (ONLY 
 
 This, along with the entirity of the Safety Loop/Shutdown Circuit system, was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below. Fusion 360 and Eagle schematic files can be found in the compressed folder, "Shutdown Circuit PCB Schematic Files," which is permalinked here: https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/f66a77cbe09608431833e2ea92ca653daefc6d79/Shutdown%20Circuit%20PCB%20Schematic%20Files.zip
 
+Below is a photo of the PCB Schematic, both normal and trimmed nets
+
+<p align="center">
+  <img width="706" alt="PCB Schematic" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/20650611ab7f731d7821bba60f4589752a2b1333/PCB%20Schematic.png">
+</p>
+
+<p align="center">
+  <img width="706" alt="PCB Schematic" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/20650611ab7f731d7821bba60f4589752a2b1333/PCB%20Schematic.png">
+</p>
+
+Below shows the PCB silkscreen and physical board layout, based on the previously showed schematic
+
 <p align="center">
   <img width="706" alt="PCB Layout Photo" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/5304f1a94ec4681c94315d3332f6c63b97bb314e/PCB%20Layout%20Photo.png">
-  
-  INSERT FUSION 360 PCB DESIGN PHOTO AND ADD FILES TO FOLDER ON GITHUB
+
 </p>
 
 Photos of the 3D model of the above PCB are shown below.
