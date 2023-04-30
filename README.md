@@ -159,6 +159,11 @@ Below shows the PCB silkscreen and physical board layout, based on the previousl
 
 </p>
 
+<p align="center">
+  <img width="706" alt="Silk Screen PCB Schematic" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/c1427304e6f8bb93b3e2e9ef899f95daae3876f5/Silk%20Screen%20PCB%20Schematic.png">
+
+</p>
+
 Photos of the 3D model of the above PCB are shown below.
 
 <p align="center">
