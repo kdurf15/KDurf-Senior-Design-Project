@@ -135,7 +135,7 @@ As required by the 2023 Formula SAE Hybrid + Electric rule set, the Isolation Mo
 This design was considered and the corresponding design was completed in falstad. The "fault" was considered/modeled as a latching switch. The falstad design is shown below and can be found here: https://tinyurl.com/23wacp5r
 
 <p align="center">
-  <img width="586" alt="falstad screenshot" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/a1ef0033f88fbdf8f094d757da383d9f4f392fa8/Falstad%20Latching%20Circuit.png">
+  <img width="586" alt="Falstad Latching Circuit" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/a1ef0033f88fbdf8f094d757da383d9f4f392fa8/Falstad%20Latching%20Circuit.png">
 </p>
 
 TALK ABOUT FALSTAD LATCHING CIRCUIT DIFFERENCES ON PCB COMPARED TO DESIGN (ONLY USING THE LATCHING/RESET PORTION), ALSO SHOW PHOTO OF PCB LATCHING
