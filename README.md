@@ -129,16 +129,16 @@ The pre-charge time delay, both for the small-scale PCB safety loop implementati
 As required by the 2023 Formula SAE Hybrid + Electric rule set, the Isolation Monitoring Device (IMD) and Accumulator Management System (AMS) require latching circuits for the faults. Two suggested designs, for either fault low or high, are provided in the Appendix G of the rules and is shown below.
 
 <p align="center">
-  INSERT PHOTO OF APPENDIX G LATCHING CIRCUIT SUGGESTIONS
+  <img width="586" alt="Falstad Latching Circuit" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/175000567e2def979cb57df49dcb3db0eb2c752a/Appendix%20G%20Latching%20Circuit.png">
 </p>
 
-This design was considered and the corresponding design was completed in falstad. The "fault" was considered/modeled as a latching switch. The falstad design is shown below and can be found here: https://tinyurl.com/23wacp5r
+This design was considered and the corresponding design was completed in falstad. The "fault" was considered/modeled as a latching switch. The falstad is not fully rules-compliant, as it needs the addition of a flyback diode, as shown in the rules. The falstad design is shown below and can be found here: https://tinyurl.com/23wacp5r
 
 <p align="center">
   <img width="586" alt="Falstad Latching Circuit" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/a1ef0033f88fbdf8f094d757da383d9f4f392fa8/Falstad%20Latching%20Circuit.png">
 </p>
 
-TALK ABOUT FALSTAD LATCHING CIRCUIT DIFFERENCES ON PCB COMPARED TO DESIGN (ONLY USING THE LATCHING/RESET PORTION), ALSO SHOW PHOTO OF PCB LATCHING
+The latching circuit used on the Safety Loop/Shutdown Circuit Educational PCB is simplified to the reset latching portion, providing "feedback" to require the reset switch. Given that the PCB is wired in series, pressing the fault button to simulate a fault shutdown. Due to the tactile connection of creating a fault with the fault button, a fault LED signal was not included.
 
 This, along with the entirity of the Safety Loop/Shutdown Circuit system, was then implemented onto a PCB with silk screens to illustrate the specific wiring path, for ease of learning and understanding. A picture of the PCB design is shown below. Fusion 360 and Eagle schematic files can be found in the compressed folder, "Shutdown Circuit PCB Schematic Files," which is permalinked here: https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/f66a77cbe09608431833e2ea92ca653daefc6d79/Shutdown%20Circuit%20PCB%20Schematic%20Files.zip
 
