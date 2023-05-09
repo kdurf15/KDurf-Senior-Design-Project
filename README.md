@@ -175,7 +175,7 @@ Photos of the 3D model of the above PCB are shown below.
 </p>
 
 
-For the small-scale Safety Loop/Shutdown Circuit PCB tool to appear more similar to the car's layout, buttons and switches were respectively mounted on 3D-printed "side panels" or "cockpit panels," similar to those on the car. Attachments for the rotary switches were also printed to mimic the red GLV and TS master switches. All .stl files for the 3D-printed designs can be found in the "3D Printed Models" folder. The completed PCB Safety Loop/Shutdown Circuit educational tool is shown below.
+For the small-scale Safety Loop/Shutdown Circuit PCB tool to appear more similar to the car's layout, buttons and switches were respectively mounted on 3D-printed "side panels" or "cockpit panels," similar to those on the car. Attachments for the rotary switches were also printed to mimic the red GLV and TS master switches. All .stl files for the 3D-printed designs are uploaded and can be found in the CAD Assembly STL Files.zip file. The completed PCB Safety Loop/Shutdown Circuit education tool is shown below.
 
 <p align="center">
 <img width="1440" alt="Durfee Safety Loop 3D PCB Photo 2" src="https://github.com/kdurf15/KDurf-Senior-Design-Project/blob/6a42bba62a2f8f9efa6898e6a9f37e1c2906fa2f/3D%20Printed%20Layout.png">
